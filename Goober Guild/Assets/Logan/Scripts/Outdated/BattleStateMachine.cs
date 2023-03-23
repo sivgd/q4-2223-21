@@ -54,6 +54,7 @@ public class BattleStateMachine : MonoBehaviour
                 {
 
                 }
+                battleStates = PerformAction.PERFORMACTION;
                 break;
 
             case (PerformAction.PERFORMACTION):

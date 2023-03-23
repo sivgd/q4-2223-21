@@ -95,7 +95,7 @@ public class EnemyStateMachine : MonoBehaviour
         actionStarted = true;
 
         //animate the enemy near the hero to attack
-        Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x + 1.5f, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z);
+        Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x - 1.5f, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z);
         while(MoveTowardsEnemy(heroPosition)) 
         {
             yield return null;
@@ -113,10 +113,12 @@ public class EnemyStateMachine : MonoBehaviour
         }
 
         //remove this performer from the list in BSM
+        BSM.PerformList.RemoveAt(0);
 
         //reset BSM -> Wait
-
+        BSM.battleStates = BattleStateMachine.PerformAction.WAIT;
         actionStarted = false;
+
         //reset the enemy state
         Cur_Cooldown = 0f;
         currentState = TurnState.PROCESSING;
