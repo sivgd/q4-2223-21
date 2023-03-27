@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class BattleHUD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMP_Text nameText;
+    public TMP_Text levelText;
+    public Slider hpSlider;
+
+    public void SetHUD(Unit unit)
     {
-        
+        nameText.text = unit.unitName;
+        levelText.text = "lvl " + unit.unitLevel;
+        hpSlider.maxValue = unit.maxHP;
+        hpSlider.value = unit.currentHP;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHP(int hp)
     {
-        
+        hpSlider.value = hp;
+
     }
 }

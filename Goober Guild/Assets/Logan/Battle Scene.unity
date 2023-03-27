@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.051812496, y: 0.07416667}
   m_AnchorMax: {x: 0.93672913, y: 0.27}
-  m_AnchoredPosition: {x: 2.0499878, y: -3}
+  m_AnchoredPosition: {x: 2.0500488, y: -3}
   m_SizeDelta: {x: 4.0999756, y: -4.857666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28300572
@@ -367,6 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818271c5f2d9c414cb63db929d624f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  levelText: {fileID: 0}
+  hpSlider: {fileID: 0}
 --- !u!1 &285116613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,6 +1268,8 @@ MonoBehaviour:
   playerBattleStation: {fileID: 1656797802}
   enemyBattleStation: {fileID: 464635143}
   dialogueText: {fileID: 1300569151}
+  playerHUD: {fileID: 2124541118}
+  enemyHUD: {fileID: 99279198}
   state: 0
 --- !u!4 &1227679862
 Transform:
@@ -1314,7 +1319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.58623743, y: 0.36534518}
   m_AnchorMax: {x: 0.71252537, y: 0.6433097}
-  m_AnchoredPosition: {x: 1.518219, y: -0.2758026}
+  m_AnchoredPosition: {x: 1.5181885, y: -0.2758026}
   m_SizeDelta: {x: 0.83469963, y: 0.5517001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270418639
@@ -2301,3 +2306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818271c5f2d9c414cb63db929d624f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  levelText: {fileID: 0}
+  hpSlider: {fileID: 0}

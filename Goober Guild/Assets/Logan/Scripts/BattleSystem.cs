@@ -16,11 +16,14 @@ public class BattleSystem : MonoBehaviour
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
-    public TMP_Text dialogueText;
-
     Unit playerUnit;
     Unit enemyUnit;
 
+    public TMP_Text dialogueText;
+
+    public BattleHUD playerHUD;
+    public BattleHUD enemyHUD;
+    
     public BattleState state;
 
     // Start is called before the first frame update
@@ -33,12 +36,15 @@ public class BattleSystem : MonoBehaviour
     void SetupBattle()
     {
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerGO.GetComponent<Unit>();
+        playerUnit = playerGO.GetComponent<Unit>();
 
         GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-        enemyGO.GetComponent<Unit>();
+        enemyUnit = enemyGO.GetComponent<Unit>();
 
-        dialogueText.text = "A" + enemyUnit.unitName + "approaches!";
+        dialogueText.text = "A  " + enemyUnit.unitName + " approaches!";
+
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
     }
 
 }
