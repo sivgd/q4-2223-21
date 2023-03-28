@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
+  m_Name: Yellow Goober
+  m_EditorClassIdentifier: 
+  name: Yellow Goober
+  description: Sunflower the Yellow Goober
+  frontSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
+  backSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
+  type1: 0
+  type2: 0
+  maxHp: 50
+  attack: 0
+  defense: 0
+  spAttack: 0
+  spDefense: 0
+  speed: 0
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 7c85c38e480061945a43a3389965717e, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: f8b29799645cc6545a9d91c806250329, type: 2}
+    level: 7

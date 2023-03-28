@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
+  m_Name: Blue Goober
+  m_EditorClassIdentifier: 
+  name: Blue Goober
+  description: = the Yellow goober
+  frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  type1: 0
+  type2: 0
+  maxHp: 50
+  attack: 10
+  defense: 4
+  spAttack: 12
+  spDefense: 6
+  speed: 7
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 8d080e6c3094d414788d116409a72c31, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 619872eacd521aa4f85f44e2152f2576, type: 2}
+    level: 7
