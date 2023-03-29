@@ -14,8 +14,8 @@ public class CharacterBase : ScriptableObject
     [SerializeField] public Sprite FrontSprite;
     [SerializeField] public Sprite BackSprite;
 
-    [SerializeField] CharacterType type1;
-    [SerializeField] CharacterType type2;
+    [SerializeField] public CharacterType type1;
+    [SerializeField] public CharacterType type2;
 
     //Base Stats
     [SerializeField] int maxHp;
@@ -93,7 +93,31 @@ public class LearnableMove
 
 public enum CharacterType
 {
+    None,
     DAMAGE,
     SPEED,
     DEFENSE
+}
+
+public class TypeChart
+{
+    static float[][] chart =
+    {
+        //                  SPD  DEF  DMG
+        /*SPD*/ new float[] {1f, 2f, 0.5f },
+        /*DEF*/ new float[] {0.5f, 1f, 2f },
+        /*DMG*/ new float[] {2f, 0.5f, 1f }
+    };
+
+    public static float GetEffectiveness(CharacterType attackType, CharacterType defenseType)
+    {
+        if (attackType == CharacterType.None || defenseType == CharacterType.None)
+            return 1;
+
+        int row = (int)attackType - 1;
+        int col = (int)defenseType - 1;
+
+        return chart[row][col];
+    }
+
 }

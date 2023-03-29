@@ -61,10 +61,10 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        bool isFainted = enemyUnit.character.TakeDamage(move, playerUnit.character);
+        var damageDetails = enemyUnit.character.TakeDamage(move, playerUnit.character);
         yield return enemyHud.UpdateHP();
 
-        if (isFainted)
+        if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} was defeated!");
         }
@@ -83,10 +83,11 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        bool isFainted = playerUnit.character.TakeDamage(move, playerUnit.character);
+        var damageDetails = playerUnit.character.TakeDamage(move, playerUnit.character);
         yield return playerHud.UpdateHP();
+        yield return ShowDamageDetails(damageDetails);
 
-        if (isFainted)
+        if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} was defeated!");
         }
@@ -94,6 +95,17 @@ public class BattleSystem : MonoBehaviour
         {
             PlayerAction();
         }
+    }
+
+    IEnumerator ShowDamageDetails(DamageDetails damageDetails)
+    {
+        if (damageDetails.Critical > 1f)
+            yield return dialogBox.TypeDialog("Critcal Strike!");
+
+        if (damageDetails.TypeEffectiveness > 1f)
+            yield return dialogBox.TypeDialog("It was a Powerful Strike!");
+        else if (damageDetails.TypeEffectiveness < 1f)
+            yield return dialogBox.TypeDialog("It was a Weak Strike!");
     }
 
     private void Update()
