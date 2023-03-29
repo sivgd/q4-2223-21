@@ -51,6 +51,50 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableMoveSelector(true);
     }
 
+    IEnumerator PerformPlayerMove()
+    {
+        state = BattleState.Busy;
+
+        var move = playerUnit.character.Moves[currentMove];
+        yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} used {move.Base.Name}");
+
+        yield return new WaitForSeconds(1f);
+
+        bool isFainted = enemyUnit.character.TakeDamage(move, playerUnit.character);
+        enemyHud.UpdateHP();
+
+        if (isFainted)
+        {
+            yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} was defeated!");
+        }
+        else
+        {
+            StartCoroutine(EnemyMove());
+        }
+    }
+
+    IEnumerator EnemyMove()
+    {
+        state = BattleState.EnemyMove;
+
+        var move = enemyUnit.character.GetRandomMove();
+        yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} used {move.Base.Name}");
+
+        yield return new WaitForSeconds(1f);
+
+        bool isFainted = playerUnit.character.TakeDamage(move, playerUnit.character);
+        playerHud.UpdateHP();
+
+        if (isFainted)
+        {
+            yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} was defeated!");
+        }
+        else
+        {
+            PlayerAction();
+        }
+    }
+
     private void Update()
     {
         if (state == BattleState.PlayerAction)
@@ -82,7 +126,7 @@ public class BattleSystem : MonoBehaviour
         {
             if (currentAction == 0)
             {
-                // FIght
+                // Fight
                 PlayerMove();
             }
             else if (currentAction == 1)
@@ -117,6 +161,13 @@ public class BattleSystem : MonoBehaviour
         }
 
         dialogBox.UpdateMoveSelection(currentMove, playerUnit.character.Moves[currentMove]);
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            dialogBox.EnableMoveSelector(false);
+            dialogBox.EnableDialogText(true);
+            StartCoroutine(PerformPlayerMove());
+        }
     }
 
 }
