@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
   m_Name: Blue Goober
   m_EditorClassIdentifier: 
-  name: Blue Goober
+  name: Max
   description: = the Yellow goober
-  frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  type1: 0
-  type2: 0
+  FrontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  BackSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  type1: 1
+  type2: 1
   maxHp: 50
   attack: 10
   defense: 4

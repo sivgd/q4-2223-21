@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
   m_Name: Mouse Fighter
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  name: Mouse Fighter
+  description: Mouse Fighter (Defense Type)
+  FrontSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
+  BackSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
   type1: 2
   type2: 2
   maxHp: 35
