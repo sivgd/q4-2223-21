@@ -11,8 +11,8 @@ public class CharacterBase : ScriptableObject
     [TextArea]
     [SerializeField] string description;
 
-    [SerializeField] Sprite frontSprite;
-    [SerializeField] Sprite backSprite;
+    [SerializeField] public Sprite FrontSprite;
+    [SerializeField] public Sprite BackSprite;
 
     [SerializeField] CharacterType type1;
     [SerializeField] CharacterType type2;

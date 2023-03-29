@@ -13,7 +13,7 @@ public class MoveBase : ScriptableObject
     [SerializeField] CharacterType type;
     [SerializeField] int power;
     [SerializeField] int accuracy;
-    [SerializeField] int me;
+    public int me;
 
     public string Name
     {

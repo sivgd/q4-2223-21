@@ -2606,9 +2606,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1124238019}
   - component: {fileID: 1124238018}
-  - component: {fileID: 1124238017}
-  - component: {fileID: 1124238021}
-  - component: {fileID: 1124238020}
   m_Layer: 0
   m_Name: back side walk_0
   m_TagString: Untagged
@@ -2616,25 +2613,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1124238017
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124238016}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a9f791122e84934bb1eb6da7268f271, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1124238018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2683,7 +2661,7 @@ SpriteRenderer:
   m_Size: {x: 4.93, y: 8.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1124238019
@@ -2700,30 +2678,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1124238020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124238016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497109f2a75ef2d49be984947819d06c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1124238021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124238016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497109f2a75ef2d49be984947819d06c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1150244431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2689,7 @@ GameObject:
   - component: {fileID: 1150244432}
   - component: {fileID: 1150244434}
   - component: {fileID: 1150244433}
+  - component: {fileID: 1150244435}
   m_Layer: 0
   m_Name: PlayerHUD
   m_TagString: Untagged
@@ -2802,6 +2757,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150244431}
   m_CullTransparentMesh: 1
+--- !u!114 &1150244435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150244431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d741ce65dfaf6c4cbcc00da23fbb04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1555566537}
+  levelText: {fileID: 1276458874}
+  hpBar: {fileID: 381045411}
 --- !u!1 &1276458872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3093,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616968922}
+  - component: {fileID: 1616968923}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -3146,6 +3117,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1616968923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616968921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dc9e58427760c469e0b3f489aaf657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUnit: {fileID: 0}
+  playerHud: {fileID: 0}
 --- !u!1 &1622634034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3143,7 @@ GameObject:
   - component: {fileID: 1622634038}
   - component: {fileID: 1622634037}
   - component: {fileID: 1622634036}
+  - component: {fileID: 1622634039}
   m_Layer: 0
   m_Name: PlayerUnit
   m_TagString: Untagged
@@ -3241,6 +3227,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622634034}
   m_CullTransparentMesh: 1
+--- !u!114 &1622634039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622634034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e2c60ee815f3a4cbbc67eaf25d28a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Base: {fileID: 11400000, guid: 08d96c9c0b38f9f4da178ec1d1eb0a9e, type: 2}
+  level: 5
+  isPlayerUnit: 1
 --- !u!1 &1723721895
 GameObject:
   m_ObjectHideFlags: 0
