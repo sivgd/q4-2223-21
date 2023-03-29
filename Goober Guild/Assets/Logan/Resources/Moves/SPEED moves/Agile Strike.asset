@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Agile Strike
   description: move for rogue/speed charcters
-  type: 0
+  type: 1
   power: 40
   accuracy: 100
   me: 15
