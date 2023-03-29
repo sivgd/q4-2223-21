@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Yellow Goober
   description: Sunflower the Yellow Goober
-  frontSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
-  backSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
+  FrontSprite: {fileID: 0}
+  BackSprite: {fileID: 0}
   type1: 0
   type2: 0
-  maxHp: 50
+  maxHp: 65
   attack: 0
   defense: 0
   spAttack: 0

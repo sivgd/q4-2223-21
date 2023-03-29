@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Stick Strike
   description: move for fighter/defense characters
   type: 2
-  power: 50
+  power: 40
   accuracy: 95
   me: 13

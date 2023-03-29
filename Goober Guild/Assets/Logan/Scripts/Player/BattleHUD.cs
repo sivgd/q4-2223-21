@@ -20,9 +20,9 @@ public class BattleHUD : MonoBehaviour
         hpBar.SetHP((float)character.HP / character.MaxHp);
     }
 
-    public void UpdateHP()
+    public IEnumerator UpdateHP()
     {
-        hpBar.SetHP((float) _character.HP / _character.MaxHp);
+        yield return hpBar.SetHPSmooth((float) _character.HP / _character.MaxHp);
     }
 
 }

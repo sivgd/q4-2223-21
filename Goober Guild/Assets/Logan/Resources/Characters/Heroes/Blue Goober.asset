@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Blue Goober
   m_EditorClassIdentifier: 
   name: Max
-  description: = the Yellow goober
+  description: Max the Blue Goober
   FrontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
   BackSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
   type1: 1
   type2: 1
-  maxHp: 50
+  maxHp: 65
   attack: 10
   defense: 4
   spAttack: 12
