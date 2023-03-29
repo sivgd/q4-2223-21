@@ -31,6 +31,7 @@ public class BattleSystem : MonoBehaviour
         dialogBox.SetMoveNames(playerUnit.character.Moves);
 
         yield return dialogBox.TypeDialog($"A ravenous {enemyUnit.character.Base.Name} appeared!");
+
         yield return new WaitForSeconds(1f);
 
         PlayerAction();
