@@ -27,13 +27,15 @@ public class BattleUnit : MonoBehaviour
             image.sprite = character.Base.BackSprite;
         else
             image.sprite = character.Base.FrontSprite;
+
+        PlayEnterAnimation();
     }
 
     public void PlayEnterAnimation()
     {
         if (isPlayerUnit)
-            image.transform.localPosition = new Vector3(-500f, originalPos.y);
+            image.transform.localPosition = new Vector3(-1358.275f, originalPos.y);
         else
-            image.transform.localPosition = new Vector3(500f, originalPos.y);
+            image.transform.localPosition = new Vector3(1358.275f, originalPos.y);
     }
 }
