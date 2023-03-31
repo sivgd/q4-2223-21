@@ -16,14 +16,14 @@ MonoBehaviour:
   description: Mouse Fighter (Defense Type)
   FrontSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
   BackSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
-  type1: 2
-  type2: 2
+  type1: 3
+  type2: 3
   maxHp: 50
-  attack: 4
-  defense: 10
-  spAttack: 6
-  spDefense: 12
-  speed: 5
+  attack: 65
+  defense: 85
+  spAttack: 35
+  spDefense: 35
+  speed: 55
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: cb16343825fd33040a5abbaf4d05d5b5, type: 2}
     level: 1

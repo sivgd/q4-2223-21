@@ -11,12 +11,29 @@ public class BattleUnit : MonoBehaviour
 
     public Character character { get; set; }
 
+    Image image;
+    Vector3 originalPos;
+
+    private void Awake()
+    {
+        image = GetComponent<Image>();
+        originalPos = image.transform.localPosition;
+    }
+
     public void Setup()
     {
         character = new Character(Base, level);
         if (isPlayerUnit)
-            GetComponent<Image>().sprite = character.Base.BackSprite;
+            image.sprite = character.Base.BackSprite;
         else
-            GetComponent<Image>().sprite = character.Base.FrontSprite;
+            image.sprite = character.Base.FrontSprite;
+    }
+
+    public void PlayEnterAnimation()
+    {
+        if (isPlayerUnit)
+            image.transform.localPosition = new Vector3(-500f, originalPos.y);
+        else
+            image.transform.localPosition = new Vector3(500f, originalPos.y);
     }
 }

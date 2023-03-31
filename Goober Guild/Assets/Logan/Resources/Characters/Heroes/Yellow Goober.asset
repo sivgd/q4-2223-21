@@ -16,8 +16,8 @@ MonoBehaviour:
   description: Sunflower the Yellow Goober
   FrontSprite: {fileID: 0}
   BackSprite: {fileID: 0}
-  type1: 0
-  type2: 0
+  type1: 1
+  type2: 1
   maxHp: 65
   attack: 0
   defense: 0
