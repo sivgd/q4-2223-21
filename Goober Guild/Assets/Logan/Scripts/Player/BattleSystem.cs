@@ -59,14 +59,18 @@ public class BattleSystem : MonoBehaviour
         var move = playerUnit.character.Moves[currentMove];
         yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} used {move.Base.Name}");
 
+        playerUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(1f);
 
+        enemyUnit.PlayHitAnimation();
         var damageDetails = enemyUnit.character.TakeDamage(move, playerUnit.character);
         yield return enemyHud.UpdateHP();
+        yield return ShowDamageDetails(damageDetails);
 
         if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} was defeated!");
+            enemyUnit.PlayFaintAnimation();
         }
         else
         {
@@ -81,8 +85,10 @@ public class BattleSystem : MonoBehaviour
         var move = enemyUnit.character.GetRandomMove();
         yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} used {move.Base.Name}");
 
+        enemyUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(1f);
 
+        playerUnit.PlayHitAnimation();
         var damageDetails = playerUnit.character.TakeDamage(move, playerUnit.character);
         yield return playerHud.UpdateHP();
         yield return ShowDamageDetails(damageDetails);
@@ -90,6 +96,7 @@ public class BattleSystem : MonoBehaviour
         if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} was defeated!");
+            playerUnit.PlayFaintAnimation();
         }
         else
         {
@@ -182,5 +189,4 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(PerformPlayerMove());
         }
     }
-
 }
