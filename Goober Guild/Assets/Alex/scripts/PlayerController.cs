@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public LayerMask solidObjectsLayer;
+    public LayerMask grassLayer;
+
     
     private bool isMoving;
     private Vector2 input;
@@ -41,16 +44,16 @@ public class PlayerController : MonoBehaviour
 
         IEnumerator Move(Vector3 targetPos)
         {
-        isMoving = true;
+            isMoving = true;
 
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
+            while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+            transform.position = targetPos;
 
-        isMoving = false;
+            isMoving = false;
         }
     }
 }
