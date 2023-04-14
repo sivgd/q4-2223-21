@@ -27,18 +27,23 @@ public class PlayerController : MonoBehaviour
             input.y = Input.GetAxisRaw("Vertical");
 
             if (input.x != 0) input.y = 0;
-
-            if (input != Vector2.zero)
             {
-                animator.SetFloat("MoveX", input.x); 
-                animator.SetFloat("MoveY", input.y);    
 
-                var targetPos = transform.position;
-                targetPos.x += input.x;
-                targetPos.y += input.y;
+                if (input != Vector2.zero)
+                {
+                    animator.SetFloat("MoveX", input.x);
+                    animator.SetFloat("MoveY", input.y);
 
-                StartCoroutine(Move(targetPos));
-            } 
+                    var targetPos = transform.position;
+                    targetPos.x += input.x;
+                    targetPos.y += input.y;
+
+                    StartCoroutine(Move(targetPos));
+                }
+            }
+
+            animator.SetBool("isMoving", isMoving);
+
         }
     
 
