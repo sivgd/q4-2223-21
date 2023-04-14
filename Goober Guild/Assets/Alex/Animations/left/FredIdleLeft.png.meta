@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 172864d7ef0d05d4a8aa527207ad995c
+guid: e79036147ad15484097f31570965c4f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8416785036253258338
-    second: FredSideRight_0
+      213: 1315955128711314227
+    second: IdleSideR_0
   - first:
-      213: -1106760694570253755
-    second: FredSideRight_1
+      213: -8587495597896814108
+    second: IdleSideR_1
   - first:
-      213: 8556870668791721679
-    second: FredSideRight_2
+      213: -8217751369682677600
+    second: IdleSideR_2
   - first:
-      213: -1576715502449826262
-    second: FredSideRight_3
+      213: 1852182488803168677
+    second: IdleSideR_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FredSideRight_0
+      name: IdleSideR_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9d1d438a92913b80800000000000000
-      internalID: -8416785036253258338
+      spriteID: 33bf033a736334210800000000000000
+      internalID: 1315955128711314227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FredSideRight_1
+      name: IdleSideR_1
       rect:
         serializedVersion: 2
         x: 500
@@ -162,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54286cc130ff3a0f0800000000000000
-      internalID: -1106760694570253755
+      spriteID: 4e13121904613d880800000000000000
+      internalID: -8587495597896814108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FredSideRight_2
+      name: IdleSideR_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -183,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fce2a4a798c10c670800000000000000
-      internalID: 8556870668791721679
+      spriteID: 0a095953baea4fd80800000000000000
+      internalID: -8217751369682677600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FredSideRight_3
+      name: IdleSideR_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -204,8 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2660a4ba916e1ae0800000000000000
-      internalID: -1576715502449826262
+      spriteID: 5a1df48092644b910800000000000000
+      internalID: 1852182488803168677
       vertices: []
       indices: 
       edges: []
