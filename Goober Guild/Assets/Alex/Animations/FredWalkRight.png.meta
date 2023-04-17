@@ -130,12 +130,12 @@ TextureImporter:
       name: FredWalkRight_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 600
+        x: 147
+        y: 2
+        width: 305
+        height: 570
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,12 +151,12 @@ TextureImporter:
       name: FredWalkRight_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 600
+        x: 663
+        y: 2
+        width: 287
+        height: 562
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: FredWalkRight_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 600
+        x: 1147
+        y: 2
+        width: 305
+        height: 570
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,12 +193,12 @@ TextureImporter:
       name: FredWalkRight_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 600
+        x: 1663
+        y: 2
+        width: 287
+        height: 562
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
