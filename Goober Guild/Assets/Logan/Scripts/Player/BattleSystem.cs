@@ -115,7 +115,7 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog("It was a Weak Strike!");
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (state == BattleState.PlayerAction)
         {
