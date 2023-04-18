@@ -104,9 +104,9 @@ public class TypeChart
     static float[][] chart =
     {
         //                  SPD  DEF  DMG
-        /*SPD*/ new float[] {1f, 2f, 0.5f },
-        /*DEF*/ new float[] {0.5f, 1f, 2f },
-        /*DMG*/ new float[] {2f, 0.5f, 1f }
+        /*SPD*/ new float[] {1f, 0.5f, 2f },
+        /*DEF*/ new float[] {2f, 1f, 0.5f },
+        /*DMG*/ new float[] {0.5f, 2f, 1f }
     };
 
     public static float GetEffectiveness(CharacterType attackType, CharacterType defenseType)
