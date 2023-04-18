@@ -127,10 +127,10 @@ TextureImporter:
       name: yellow map bdipanihfr_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1083
-        width: 810
-        height: 629
+        x: 153
+        y: 1117
+        width: 457
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,10 +148,10 @@ TextureImporter:
       name: yellow map bdipanihfr_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 571.3333
-        width: 810
-        height: 570.6667
+        x: 155
+        y: 597
+        width: 457
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: yellow map bdipanihfr_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1.333313
-        width: 810
-        height: 570.6667
+        x: 154
+        y: 64
+        width: 457
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
