@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 0b86eb04110cc4c46add0fc5568afb1e
+guid: 7bd8cee91cff9594c9214f44e1061e73
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6531384052880668391
-    second: tmr_0
-  - first:
-      213: -1248562337113477981
-    second: tmr_1
-  - first:
-      213: -8030593835621150852
-    second: tmr_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 450
+  spritePixelsToUnits: 199
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,70 +113,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: tmr_0
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 1138
-        width: 456
-        height: 457
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91985640fccdb55a0800000000000000
-      internalID: -6531384052880668391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tmr_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 619
-        width: 456
-        height: 456
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ac6b686b273caee0800000000000000
-      internalID: -1248562337113477981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tmr_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 86
-        width: 456
-        height: 456
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7f0c5454799d8090800000000000000
-      internalID: -8030593835621150852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
