@@ -2,19 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Character
 {
-    public CharacterBase Base { get; set; }
-    public int Level { get; set; }
+    [SerializeField] CharacterBase _base;
+    [SerializeField] int level;
+
+    public CharacterBase Base {
+        get {
+            return _base;
+        }
+    }
+
+    public int Level {
+        get 
+        {
+            return level;
+        }
+    }
 
     public int HP { get; set; }
 
     public List<Move> Moves { get; set; }
 
-    public Character(CharacterBase cBase, int cLevel)
+    public void Init()
     {
-        Base = cBase;
-        Level = cLevel;
         HP = MaxHp;
 
         //Generate Moves

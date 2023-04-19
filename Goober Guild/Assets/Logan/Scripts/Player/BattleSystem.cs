@@ -19,15 +19,20 @@ public class BattleSystem : MonoBehaviour
     int currentAction;
     int currentMove;
 
-    public void StartBattle()
+    CharacterParty playerParty;
+    Character wildCharacter;
+
+    public void StartBattle(CharacterParty playerParty, Character wildCharacter)
     {
+        this.playerParty = playerParty;
+        this.wildCharacter = wildCharacter;
         StartCoroutine(SetupBattle());
     }
 
     public IEnumerator SetupBattle()
     {
-        playerUnit.Setup();
-        enemyUnit.Setup();
+        playerUnit.Setup(playerParty.GetHealthyCharacter());
+        enemyUnit.Setup(wildCharacter);
         playerHud.SetData(playerUnit.character);
         enemyHud.SetData(enemyUnit.character);
 
@@ -76,7 +81,25 @@ public class BattleSystem : MonoBehaviour
             enemyUnit.PlayFaintAnimation();
 
             yield return new WaitForSeconds(2f);
-            OnBattleOver(true);
+
+            var nextCharacter = playerParty.GetHealthyCharacter();
+            if (nextCharacter != null)
+            {
+                playerUnit.Setup(nextCharacter);
+                playerHud.SetData(nextCharacter);
+
+                dialogBox.SetMoveNames(nextCharacter.Moves);
+
+                yield return dialogBox.TypeDialog($"Go {nextCharacter.Base.Name}!");
+
+                yield return new WaitForSeconds(1f);
+
+                PlayerAction();
+            }
+            else
+            {
+                OnBattleOver(true);
+            }
         }
         else
         {

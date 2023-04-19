@@ -24,9 +24,9 @@ public class BattleUnit : MonoBehaviour
         originalColor = image.color;
     }
 
-    public void Setup()
+    public void Setup(Character character)
     {
-        character = new Character(Base, level);
+        character = character;
         if (isPlayerUnit)
             image.sprite = character.Base.BackSprite;
         else
