@@ -7,8 +7,6 @@ using DG.Tweening;
 
 public class BattleUnit : MonoBehaviour
 {
-    [SerializeField] CharacterBase Base;
-    [SerializeField] int level;
     [SerializeField] bool isPlayerUnit;
 
     public Character character { get; set; }

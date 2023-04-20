@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Alex/Scenes/MainTitle.unity
     guid: 8832b298878fc9c45b6d5ab5c4da7ef0
   - enabled: 1
-    path: Assets/Logan/Battle Scene.unity
-    guid: 892bb6849b2cd97459fb2f9a8cc53d6f
-  - enabled: 0
     path: Assets/Alex/Scenes/TopDownMovement 1.unity
     guid: 8cce435638c43fb4ab9a80b16778bdef
+  - enabled: 0
+    path: Assets/Logan/Battle Scene.unity
+    guid: 892bb6849b2cd97459fb2f9a8cc53d6f
   m_configObjects: {}
