@@ -24,7 +24,6 @@ public class BattleUnit : MonoBehaviour
 
     public void Setup(Character character)
     {
-        character = character;
         if (isPlayerUnit)
             image.sprite = character.Base.BackSprite;
         else
