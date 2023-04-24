@@ -8,8 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public LayerMask solidObjectsLayer;
     public LayerMask grassLayer;
-
-    public event Action OnEncountered;
+    public GameController gameController;
     
     private bool isMoving;
     private Vector2 input;
@@ -76,14 +75,14 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
-    private void CheckForEncounters()
+    public void CheckForEncounters()
     {
         if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
                 animator.SetBool("isMoving", false);
-                OnEncountered();
+                gameController.StartBattle();
             }
         }
     }
