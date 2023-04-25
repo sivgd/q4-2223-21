@@ -242,7 +242,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 288944549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279548738}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &288944549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13507,6 +13519,9 @@ MonoBehaviour:
   nameText: {fileID: 1956229192}
   levelText: {fileID: 438224014}
   hpBar: {fileID: 645296024}
+  _character:
+    _base: {fileID: 0}
+    level: 0
 --- !u!1 &793136847
 GameObject:
   m_ObjectHideFlags: 0
@@ -13675,6 +13690,9 @@ MonoBehaviour:
   nameText: {fileID: 1353461024}
   levelText: {fileID: 993169252}
   hpBar: {fileID: 829384421}
+  _character:
+    _base: {fileID: 0}
+    level: 0
 --- !u!1 &797559292
 GameObject:
   m_ObjectHideFlags: 0
@@ -13928,7 +13946,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 903272114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279548738}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &903272114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16520,6 +16550,7 @@ MonoBehaviour:
   grassLayer:
     serializedVersion: 2
     m_Bits: 128
+  gameController: {fileID: 0}
 --- !u!95 &1666755570
 Animator:
   serializedVersion: 3
@@ -17166,7 +17197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1991143530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279548738}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1991143530
 MonoBehaviour:
   m_ObjectHideFlags: 0
