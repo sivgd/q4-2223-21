@@ -68,6 +68,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Busy;
 
         var move = playerUnit.character.Moves[currentMove];
+        move.ME--;
         yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} used {move.Base.Name}");
 
         playerUnit.PlayAttackAnimation();
@@ -115,6 +116,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.EnemyMove;
 
         var move = enemyUnit.character.GetRandomMove();
+        move.ME--;
         yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} used {move.Base.Name}");
 
         enemyUnit.PlayAttackAnimation();

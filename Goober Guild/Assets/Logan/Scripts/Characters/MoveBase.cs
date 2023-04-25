@@ -44,4 +44,19 @@ public class MoveBase : ScriptableObject
     {
         get { return me; }
     }
+
+    public bool IsSpecial
+    {
+        get
+        {
+            if (type == CharacterType.SPEED || type == CharacterType.DEFENSE || type == CharacterType.DAMAGE)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }
