@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Stick Strike
   description: move for fighter/defense characters
-  type: 2
+  type: 3
   power: 40
   accuracy: 95
   me: 13

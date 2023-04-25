@@ -1710,8 +1710,8 @@ MonoBehaviour:
   levelText: {fileID: 1276458874}
   hpBar: {fileID: 381045411}
   _character:
-    _base: {fileID: 11400000, guid: 08d96c9c0b38f9f4da178ec1d1eb0a9e, type: 2}
-    level: 5
+    _base: {fileID: 0}
+    level: 0
 --- !u!1 &1276458872
 GameObject:
   m_ObjectHideFlags: 0
@@ -106783,7 +106783,6 @@ MonoBehaviour:
   grassLayer:
     serializedVersion: 2
     m_Bits: 128
-  gameController: {fileID: 1016423696}
 --- !u!212 &1917964332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106866,8 +106865,6 @@ MonoBehaviour:
   - _base: {fileID: 11400000, guid: 08d96c9c0b38f9f4da178ec1d1eb0a9e, type: 2}
     level: 5
   - _base: {fileID: 11400000, guid: cf6e07c055cce934cb686713cc0b3e02, type: 2}
-    level: 5
-  - _base: {fileID: 11400000, guid: 42512df806d488a4b8af78d79b29f0c8, type: 2}
     level: 5
 --- !u!1 &2025670778
 GameObject:

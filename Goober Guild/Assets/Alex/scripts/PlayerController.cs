@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public LayerMask solidObjectsLayer;
     public LayerMask grassLayer;
-    public GameController gameController;
+
+    public event Action OnEncountered;
     
     private bool isMoving;
     private Vector2 input;
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {
                 animator.SetBool("isMoving", false);
-                gameController.StartBattle();
+                OnEncountered();
             }
         }
     }
