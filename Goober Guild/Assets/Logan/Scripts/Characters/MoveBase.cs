@@ -13,7 +13,7 @@ public class MoveBase : ScriptableObject
     [SerializeField] CharacterType type;
     [SerializeField] int power;
     [SerializeField] int accuracy;
-    public int me;
+    [SerializeField] int me;
 
     public string Name
     {
@@ -43,20 +43,5 @@ public class MoveBase : ScriptableObject
     public int ME
     {
         get { return me; }
-    }
-
-    public bool IsSpecial
-    {
-        get
-        {
-            if (type == CharacterType.SPEED || type == CharacterType.DEFENSE || type == CharacterType.DAMAGE)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }

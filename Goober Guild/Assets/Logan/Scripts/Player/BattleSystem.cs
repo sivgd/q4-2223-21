@@ -31,21 +31,16 @@ public class BattleSystem : MonoBehaviour
 
     public IEnumerator SetupBattle()
     {
-        PlayerAction();
-
         playerUnit.Setup(playerParty.GetHealthyCharacter());
-
         enemyUnit.Setup(wildCharacter);
+        playerHud.SetData(playerUnit.Character);
+        enemyHud.SetData(enemyUnit.Character);
 
-        playerHud.SetData(playerUnit.character);
+        dialogBox.SetMoveNames(playerUnit.Character.Moves);
 
-        enemyHud.SetData(enemyUnit.character);
+        yield return dialogBox.TypeDialog($"A ravenous {enemyUnit.Character.Base.Name} approached!");
 
-
-        dialogBox.SetMoveNames(playerUnit.character.Moves);
-
-
-        yield return dialogBox.TypeDialog($"A ravenous {enemyUnit.character.Base.Name} appeared!");
+        PlayerAction();
     }
 
     void PlayerAction()
@@ -67,22 +62,53 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.Busy;
 
-        var move = playerUnit.character.Moves[currentMove];
+        var move = playerUnit.Character.Moves[currentMove];
         move.ME--;
-        yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} used {move.Base.Name}");
+        yield return dialogBox.TypeDialog($"{playerUnit.Character.Base.Name} used {move.Base.Name}");
 
         playerUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(1f);
 
         enemyUnit.PlayHitAnimation();
-        var damageDetails = enemyUnit.character.TakeDamage(move, playerUnit.character);
+        var damageDetails = enemyUnit.Character.TakeDamage(move, playerUnit.Character);
         yield return enemyHud.UpdateHP();
         yield return ShowDamageDetails(damageDetails);
 
         if (damageDetails.Fainted)
         {
-            yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} was defeated!");
+            yield return dialogBox.TypeDialog($"{enemyUnit.Character.Base.Name} was defeated!");
             enemyUnit.PlayFaintAnimation();
+
+            yield return new WaitForSeconds(2f);
+            OnBattleOver(true);
+           
+        }
+        else
+        {
+            StartCoroutine(EnemyMove());
+        }
+    }
+
+    IEnumerator EnemyMove()
+    {
+        state = BattleState.EnemyMove;
+
+        var move = enemyUnit.Character.GetRandomMove();
+        move.ME--;
+        yield return dialogBox.TypeDialog($"{enemyUnit.Character.Base.Name} used {move.Base.Name}");
+
+        enemyUnit.PlayAttackAnimation();
+        yield return new WaitForSeconds(1f);
+
+        playerUnit.PlayHitAnimation();
+        var damageDetails = playerUnit.Character.TakeDamage(move, playerUnit.Character);
+        yield return playerHud.UpdateHP();
+        yield return ShowDamageDetails(damageDetails);
+
+        if (damageDetails.Fainted)
+        {
+            yield return dialogBox.TypeDialog($"{playerUnit.Character.Base.Name} has fallen...");
+            playerUnit.PlayFaintAnimation();
 
             yield return new WaitForSeconds(2f);
 
@@ -96,44 +122,12 @@ public class BattleSystem : MonoBehaviour
 
                 yield return dialogBox.TypeDialog($"Go {nextCharacter.Base.Name}!");
 
-                yield return new WaitForSeconds(1f);
-
                 PlayerAction();
             }
             else
             {
-                OnBattleOver(true);
+                OnBattleOver(false);
             }
-        }
-        else
-        {
-            StartCoroutine(EnemyMove());
-        }
-    }
-
-    IEnumerator EnemyMove()
-    {
-        state = BattleState.EnemyMove;
-
-        var move = enemyUnit.character.GetRandomMove();
-        move.ME--;
-        yield return dialogBox.TypeDialog($"{enemyUnit.character.Base.Name} used {move.Base.Name}");
-
-        enemyUnit.PlayAttackAnimation();
-        yield return new WaitForSeconds(1f);
-
-        playerUnit.PlayHitAnimation();
-        var damageDetails = playerUnit.character.TakeDamage(move, playerUnit.character);
-        yield return playerHud.UpdateHP();
-        yield return ShowDamageDetails(damageDetails);
-
-        if (damageDetails.Fainted)
-        {
-            yield return dialogBox.TypeDialog($"{playerUnit.character.Base.Name} was defeated!");
-            playerUnit.PlayFaintAnimation();
-
-            yield return new WaitForSeconds(2f);
-            OnBattleOver(false);
         }
         else
         {
@@ -144,7 +138,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator ShowDamageDetails(DamageDetails damageDetails)
     {
         if (damageDetails.Critical > 1f)
-            yield return dialogBox.TypeDialog("Critcal Strike!");
+            yield return dialogBox.TypeDialog("Hit a weak point!");
 
         if (damageDetails.TypeEffectiveness > 1f)
             yield return dialogBox.TypeDialog("It was a Powerful Strike!");
@@ -198,7 +192,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (currentMove < playerUnit.character.Moves.Count - 1)
+            if (currentMove < playerUnit.Character.Moves.Count - 1)
                 ++currentMove;
         }
         else if (Input.GetKeyDown(KeyCode.A))
@@ -208,7 +202,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            if (currentMove < playerUnit.character.Moves.Count - 2)
+            if (currentMove < playerUnit.Character.Moves.Count - 2)
                 currentMove += 2;
         }
         else if (Input.GetKeyDown(KeyCode.W))
@@ -217,7 +211,7 @@ public class BattleSystem : MonoBehaviour
                 currentMove -= 2;
         }
 
-        dialogBox.UpdateMoveSelection(currentMove, playerUnit.character.Moves[currentMove]);
+        dialogBox.UpdateMoveSelection(currentMove, playerUnit.Character.Moves[currentMove]);
 
         if (Input.GetKeyDown(KeyCode.Return))
         {

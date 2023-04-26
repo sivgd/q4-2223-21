@@ -11,6 +11,6 @@ public class Move
     public Move(MoveBase cBase)
     {
         Base = cBase;
-        ME = cBase.me;
+        ME = cBase.ME;
     }
 }

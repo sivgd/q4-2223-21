@@ -9,11 +9,11 @@ public class BattleHUD : MonoBehaviour
     [SerializeField] Text levelText;
     [SerializeField] HPbar hpBar;
 
-    public Character _character;
+    Character _character;
 
     public void SetData(Character character)
     {
-        character = _character;
+        _character = character;
 
         nameText.text = character.Base.Name;
         levelText.text = "Lvl " + character.Level;

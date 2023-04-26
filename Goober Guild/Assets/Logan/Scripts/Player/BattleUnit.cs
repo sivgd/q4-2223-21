@@ -9,7 +9,7 @@ public class BattleUnit : MonoBehaviour
 {
     [SerializeField] bool isPlayerUnit;
 
-    public Character character { get; set; }
+    public Character Character { get; set; }
 
     Image image;
     Vector3 originalPos;
@@ -24,7 +24,7 @@ public class BattleUnit : MonoBehaviour
 
     public void Setup(Character character)
     {
-        character = character;
+        Character = character;
         if (isPlayerUnit)
             image.sprite = character.Base.BackSprite;
         else
