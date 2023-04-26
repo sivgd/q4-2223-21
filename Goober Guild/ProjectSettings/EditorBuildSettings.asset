@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Alex/Scenes/MainTitle.unity
     guid: 8832b298878fc9c45b6d5ab5c4da7ef0
   - enabled: 1
+    path: Assets/Alex/Scenes/AlexCredit.unity
+    guid: d2b1e8d9e0dce664e96b8fd20801922d
+  - enabled: 1
+    path: Assets/Alex/Scenes/CarinCredit.unity
+    guid: 0ca8f948a121acf41a93547c060c696d
+  - enabled: 1
+    path: Assets/Alex/Scenes/FinchCredit.unity
+    guid: 62e8ce6ad962e834f8c4bf6d8234f19e
+  - enabled: 1
+    path: Assets/Alex/Scenes/SophiaCredit.unity
+    guid: 569de06750beda74aa6225750cfb8493
+  - enabled: 1
     path: Assets/Alex/Scenes/TopDownMovement 1.unity
     guid: 8cce435638c43fb4ab9a80b16778bdef
   - enabled: 0

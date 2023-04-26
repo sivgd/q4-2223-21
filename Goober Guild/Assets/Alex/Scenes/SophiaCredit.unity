@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 676376997}
   - component: {fileID: 676376996}
   - component: {fileID: 676376995}
+  - component: {fileID: 676376999}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -448,6 +449,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &676376999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676376994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894ea7df7a6d5e24f83a156fded69d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &981015294
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +622,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1623324216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 676376999}
+        m_TargetAssemblyTypeName: SophiaCredit, Assembly-CSharp
+        m_MethodName: mainTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1623324216
 MonoBehaviour:
   m_ObjectHideFlags: 0
