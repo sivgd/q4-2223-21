@@ -50,6 +50,11 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableActionSelector(true);
     }
 
+    void OpenPartyScreen()
+    {
+        print("Party Screen");
+    }
+
     void PlayerMove()
     {
         state = BattleState.PlayerMove;
@@ -160,16 +165,16 @@ public class BattleSystem : MonoBehaviour
 
     void HandleActionSelection()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (currentAction < 1)
-                ++currentAction;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentAction > 0)
-                --currentAction;
-        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            ++currentAction;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            --currentAction;
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            currentAction += 2;
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+            currentAction -= 2;
+
+        currentAction = Mathf.Clamp(currentAction, 0, 3);
 
         dialogBox.UpdateActionSelection(currentAction);
 
@@ -182,7 +187,16 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 1)
             {
+                // Character
+                OpenPartyScreen();
+
+            }
+            else if (currentAction == 2)
+            {
                 // Run
+            }
+            else if (currentAction == 3)
+            {
 
             }
         }
@@ -190,26 +204,16 @@ public class BattleSystem : MonoBehaviour
 
     void HandleMoveSelection()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (currentMove < playerUnit.Character.Moves.Count - 1)
-                ++currentMove;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (currentMove > 0)
-                --currentMove;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (currentMove < playerUnit.Character.Moves.Count - 2)
-                currentMove += 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentMove > 1)
-                currentMove -= 2;
-        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            ++currentMove;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            --currentMove;
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            currentMove += 2;
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+            currentMove -= 2;
+
+        currentMove = Mathf.Clamp(currentMove, 0, playerUnit.Character.Moves.Count);
 
         dialogBox.UpdateMoveSelection(currentMove, playerUnit.Character.Moves[currentMove]);
 
@@ -218,6 +222,12 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
             StartCoroutine(PerformPlayerMove());
+        }
+        else if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            dialogBox.EnableMoveSelector(false);
+            dialogBox.EnableDialogText(true);
+            PlayerAction();
         }
     }
 }
