@@ -46,7 +46,7 @@ public class BattleSystem : MonoBehaviour
     void PlayerAction()
     {
         state = BattleState.PlayerAction;
-        StartCoroutine(dialogBox.TypeDialog("Choose an action"));
+        dialogBox.TypeDialog("Choose an action");
         dialogBox.EnableActionSelector(true);
     }
 
@@ -165,13 +165,13 @@ public class BattleSystem : MonoBehaviour
 
     void HandleActionSelection()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             ++currentAction;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A))
             --currentAction;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
             currentAction += 2;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W))
             currentAction -= 2;
 
         currentAction = Mathf.Clamp(currentAction, 0, 3);
@@ -187,13 +187,13 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 1)
             {
-                // Character
-                OpenPartyScreen();
+                // Bag
 
             }
             else if (currentAction == 2)
             {
-                // Run
+                // Party
+                OpenPartyScreen();
             }
             else if (currentAction == 3)
             {
@@ -204,16 +204,16 @@ public class BattleSystem : MonoBehaviour
 
     void HandleMoveSelection()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             ++currentMove;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A))
             --currentMove;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
             currentMove += 2;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W))
             currentMove -= 2;
 
-        currentMove = Mathf.Clamp(currentMove, 0, playerUnit.Character.Moves.Count);
+        currentMove = Mathf.Clamp(currentMove, 0, playerUnit.Character.Moves.Count - 1 );
 
         dialogBox.UpdateMoveSelection(currentMove, playerUnit.Character.Moves[currentMove]);
 
