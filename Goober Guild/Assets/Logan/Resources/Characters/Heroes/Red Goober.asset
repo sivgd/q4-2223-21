@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
   m_Name: Red Goober
   m_EditorClassIdentifier: 
-  name: Red Goober
+  name: Herbert
   description: Herbert the red goober
   FrontSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
   BackSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
