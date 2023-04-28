@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
        
 
-        if (Physics2D.OverlapCircle(targetPos + new Vector3(0,0,0) , 0.2f, solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos , 0.1f, solidObjectsLayer) != null)
         {
             return false;
         }
