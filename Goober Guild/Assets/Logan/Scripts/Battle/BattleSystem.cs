@@ -12,6 +12,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleHUD playerHud;
     [SerializeField] BattleHUD enemyHud;
     [SerializeField] BattleDialogBox dialogBox;
+    [SerializeField] PartyScreen partyScreen;
 
     public event Action<bool> OnBattleOver;
 
@@ -36,6 +37,8 @@ public class BattleSystem : MonoBehaviour
         playerHud.SetData(playerUnit.Character);
         enemyHud.SetData(enemyUnit.Character);
 
+        partyScreen.Init();
+
         dialogBox.SetMoveNames(playerUnit.Character.Moves);
 
         yield return dialogBox.TypeDialog($"A ravenous {enemyUnit.Character.Base.Name} approached!");
@@ -52,7 +55,8 @@ public class BattleSystem : MonoBehaviour
 
     void OpenPartyScreen()
     {
-        print("Party Screen");
+        partyScreen.SetPartyData(playerParty.Characters);
+        partyScreen.gameObject.SetActive(true);
     }
 
     void PlayerMove()

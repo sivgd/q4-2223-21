@@ -7,6 +7,14 @@ public class CharacterParty : MonoBehaviour
 {
     [SerializeField] List<Character> characters;
 
+    public List<Character> Characters
+    {
+        get
+        {
+            return characters;
+        }
+    }
+
     private void Start()
     {
         foreach (var character in characters)

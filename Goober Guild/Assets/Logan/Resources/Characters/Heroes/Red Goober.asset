@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Red Goober
   description: Herbert the red goober
-  FrontSprite: {fileID: 0}
-  BackSprite: {fileID: 0}
+  FrontSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
+  BackSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
   type1: 3
   type2: 0
   maxHp: 65
