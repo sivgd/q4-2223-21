@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Alex/Scenes/FinchCredit.unity
     guid: 62e8ce6ad962e834f8c4bf6d8234f19e
   - enabled: 1
+    path: Assets/Alex/Scenes/LoganCredits.unity
+    guid: 79af80ab362eab74aae96d6d902c0168
+  - enabled: 1
     path: Assets/Alex/Scenes/SophiaCredit.unity
     guid: 569de06750beda74aa6225750cfb8493
   - enabled: 1

@@ -463,7 +463,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 657891012}
         m_TargetAssemblyTypeName: FinchCredit, Assembly-CSharp
-        m_MethodName: sophiaCredit
+        m_MethodName: loganCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

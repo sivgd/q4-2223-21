@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FinchCredit : MonoBehaviour
 {
-   public void sophiaCredit()
+   public void loganCredits()
    {
-		SceneManager.LoadScene("SophiaCredit");
+		SceneManager.LoadScene("LoganCredits");
    }
 }
