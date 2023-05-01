@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public class Cutscene : MonoBehaviour
 {
-   public void cutscene()
-   {
-		SceneManager.LoadScene("Cutscene");
-   }
+	public void c()
+	{
+		SceneManager.LoadScene("CarinCredit");
+	}
 }

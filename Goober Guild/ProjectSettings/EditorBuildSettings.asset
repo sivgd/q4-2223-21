@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Alex/Scenes/MainTitle.unity
     guid: 8832b298878fc9c45b6d5ab5c4da7ef0
   - enabled: 1
+    path: Assets/Alex/Scenes/Cutscene.unity
+    guid: c25013c782bde814985c4d1ab8e751a8
+  - enabled: 1
     path: Assets/Alex/Scenes/Controls.unity
     guid: f63c945f1d0a95e428a2ac13ebd7e521
   - enabled: 1
