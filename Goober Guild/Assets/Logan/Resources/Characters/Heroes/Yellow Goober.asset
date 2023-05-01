@@ -19,7 +19,7 @@ MonoBehaviour:
   type1: 1
   type2: 0
   maxHp: 65
-  attack: 67
+  attack: 75
   defense: 45
   spAttack: 85
   spDefense: 56

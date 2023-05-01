@@ -126,14 +126,7 @@ public class BattleSystem : MonoBehaviour
             var nextCharacter = playerParty.GetHealthyCharacter();
             if (nextCharacter != null)
             {
-                playerUnit.Setup(nextCharacter);
-                playerHud.SetData(nextCharacter);
-
-                dialogBox.SetMoveNames(nextCharacter.Moves);
-
-                yield return dialogBox.TypeDialog($"Go {nextCharacter.Base.Name}!");
-
-                PlayerAction();
+                OpenPartyScreen();
             }
             else
             {
@@ -252,7 +245,7 @@ public class BattleSystem : MonoBehaviour
 
         partyScreen.UpdateMemberSelection(currentMember);
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             var selectedMember = playerParty.Characters[currentMember];
             if (selectedMember.HP <= 0)
@@ -270,7 +263,7 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.Busy;
             StartCoroutine(SwitchCharacter(selectedMember));
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Backspace))
         {
             partyScreen.gameObject.SetActive(false);
             PlayerAction();
@@ -279,9 +272,13 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SwitchCharacter(Character newCharacter)
     {
-        yield return dialogBox.TypeDialog($"Retreat {playerUnit.Character.Base.Name}!!");
-        playerUnit.PlayFaintAnimation();
-        yield return new WaitForSeconds(2f);
+        if (playerUnit.Character.HP > 0)
+        {
+            yield return dialogBox.TypeDialog($"Retreat {playerUnit.Character.Base.Name}!!");
+            playerUnit.PlayFaintAnimation();
+            yield return new WaitForSeconds(2f);
+        }
+
 
         playerUnit.Setup(newCharacter);
         playerHud.SetData(newCharacter);

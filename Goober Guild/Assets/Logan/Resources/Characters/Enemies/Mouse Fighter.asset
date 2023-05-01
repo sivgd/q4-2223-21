@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
   m_Name: Mouse Fighter
   m_EditorClassIdentifier: 
-  name: Mouse Fighter
-  description: Mouse Fighter (Defense Type)
+  name: Mouse Rogue
+  description: Mouse Fighter (Speed Type)
   FrontSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
   BackSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
-  type1: 3
+  type1: 2
   type2: 0
   maxHp: 50
   attack: 65
-  defense: 85
+  defense: 55
   spAttack: 35
   spDefense: 35
-  speed: 55
+  speed: 85
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: cb16343825fd33040a5abbaf4d05d5b5, type: 2}
     level: 1
