@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneDetails : MonoBehaviour
+public class TrainerController : MonoBehaviour
 {
-    [SerializeField] AudioClip sceneMusic;
-
     
 }

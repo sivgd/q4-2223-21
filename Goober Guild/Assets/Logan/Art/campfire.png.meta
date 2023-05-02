@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: b39886522304c93448476586de05a160
+guid: 22eae035230798547a3702035d130f3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8627277965616818638
-    second: Mouse Sprite Fighter_0
+      213: -6084711936022183385
+    second: campfire_0
   - first:
-      213: 8063111408787840759
-    second: Mouse Sprite Fighter_1
+      213: 4050951396788438689
+    second: campfire_1
   - first:
-      213: 8784949061583362238
-    second: Mouse Sprite Fighter_2
+      213: -8012128868543324901
+    second: campfire_2
   - first:
-      213: 2437135565646301087
-    second: Mouse Sprite Fighter_3
+      213: -6728550890335850352
+    second: campfire_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,35 +99,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mouse Sprite Fighter_0
+      name: campfire_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 236dad84660c54880800000000000000
-      internalID: -8627277965616818638
+      spriteID: 72281dc7bb2ce8ba0800000000000000
+      internalID: -6084711936022183385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Sprite Fighter_1
+      name: campfire_1
       rect:
         serializedVersion: 2
         x: 500
@@ -162,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fed2392b1de5ef60800000000000000
-      internalID: 8063111408787840759
+      spriteID: 1a682ff15ded73830800000000000000
+      internalID: 4050951396788438689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Sprite Fighter_2
+      name: campfire_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -183,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb8d39970a86ae970800000000000000
-      internalID: 8784949061583362238
+      spriteID: b1d92df7e333fc090800000000000000
+      internalID: -8012128868543324901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse Sprite Fighter_3
+      name: campfire_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -204,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9781db62e172d120800000000000000
-      internalID: 2437135565646301087
+      spriteID: 090b4685d926f92a0800000000000000
+      internalID: -6728550890335850352
       vertices: []
       indices: 
       edges: []

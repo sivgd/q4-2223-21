@@ -107,6 +107,11 @@ public class Character
         int r = Random.Range(0, Moves.Count);
         return Moves[r];
     }
+
+    public void Heal()
+    {
+        HP = MaxHp;
+    }
 }
 
 public class DamageDetails
