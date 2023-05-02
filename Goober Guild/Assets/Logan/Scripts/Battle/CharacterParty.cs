@@ -11,13 +11,13 @@ public class CharacterParty : MonoBehaviour
     {
         get
         {
-            return characters;
+            return character;
         }
     }
 
     private void Start()
     {
-        foreach (var character in characters)
+        foreach (var character in Characters)
         {
             character.Init();
         }

@@ -1,119 +1,88 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Character
+public class Character : MonoBehaviour
 {
-    [SerializeField] CharacterBase _base;
-    [SerializeField] int level;
+    public float moveSpeed;
 
-    public CharacterBase Base {
-        get 
+    public bool IsMoving { get; private set; }
+
+    CharacterAnimator animator;
+    private void Awake()
+    {
+        animator = GetComponent<CharacterAnimator>();
+    }
+
+    public IEnumerator Move(Vector2 moveVec, Action OnMoveOver = null)
+    {
+        animator.MoveX = Mathf.Clamp(moveVec.x, -1f, 1f);
+        animator.MoveY = Mathf.Clamp(moveVec.y, -1f, 1f);
+
+        var targetPos = transform.position;
+        targetPos.x += moveVec.x;
+        targetPos.y += moveVec.y;
+
+        if (!IsPathClear(targetPos))
+            yield break;
+
+        IsMoving = true;
+
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            return _base;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
         }
+        transform.position = targetPos;
+
+        IsMoving = false;
+
+        OnMoveOver?.Invoke();
     }
 
-    public int Level {
-        get 
+    public void HandleUpdate()
+    {
+        animator.IsMoving = IsMoving;
+    }
+
+    private bool IsPathClear(Vector3 targetPos)
+    {
+        var diff = targetPos - transform.position;
+        var dir = diff.normalized;
+
+        if (Physics2D.BoxCast(transform.position + dir, new Vector2(0.2f, 0.2f), 0f, dir, diff.magnitude - 1, GameLayers.i.SolidLayer | GameLayers.i.InteractableLayer | GameLayers.i.PlayerLayer) == true)
+            return false;
+
+        return true;
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, GameLayers.i.SolidLayer | GameLayers.i.InteractableLayer) != null)
         {
-            return level;
-        }
-    }
-
-    public int HP { get; set; }
-
-    public List<Move> Moves { get; set; }
-
-    public void Init()
-    {
-        HP = MaxHp;
-
-        //Generate Moves
-        Moves = new List<Move>();
-        foreach (var move in Base.LearnableMoves)
-        {
-            if (move.Level <= Level)
-                Moves.Add(new Move(move.Base));
-            
-            if (Moves.Count >= 4)
-                break;
-        }
-    }
-
-    public int Attack
-    {
-        get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5; }
-    }
-
-    public int Defense
-    {
-        get { return Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5; }
-    }
-
-    public int SpAttack
-    {
-        get { return Mathf.FloorToInt((Base.SpAttack * Level) / 100f) + 5; }
-    }
-
-    public int SpDefense
-    {
-        get { return Mathf.FloorToInt((Base.SpDefense * Level) / 100f) + 5; }
-    }
-
-    public int Speed
-    {
-        get { return Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5; }
-    }
-
-    public int MaxHp
-    {
-        get { return Mathf.FloorToInt((Base.MaxHp * Level) / 100f) + 10; }
-    }
-
-    public DamageDetails TakeDamage(Move move, Character attacker)
-    {
-        float critical = 1f;
-        if (Random.value * 100f <= 6.25f)
-            critical = 2f;
-
-        float type = TypeChart.GetEffectiveness(move.Base.Type, this.Base.type1) * TypeChart.GetEffectiveness(move.Base.Type, this.Base.type2);
-
-        var damageDetails = new DamageDetails()
-        {
-            TypeEffectiveness = type,
-            Critical = critical,
-            Fainted = false
-        };
-
-        float modifiers = Random.Range(0.85f, 1f) * type * critical;
-        float a = (2 * attacker.Level + 10) / 250f;
-        float d = a * move.Base.Power * ((float)Attack / Defense) + 2;
-        int damage = Mathf.FloorToInt(d * modifiers);
-
-        HP -= damage;
-        if (HP <= 0)
-        {
-            HP = 0;
-            damageDetails.Fainted = true;
+            return false;
         }
 
-        return damageDetails;
+        return true;
     }
 
-    public Move GetRandomMove()
+    public void LookTowards(Vector3 targetPos)
     {
-        int r = Random.Range(0, Moves.Count);
-        return Moves[r];
+        var xdiff = Mathf.Floor(targetPos.x) - Mathf.Floor(transform.position.x);
+        var ydiff = Mathf.Floor(targetPos.y) - Mathf.Floor(transform.position.y);
+
+        if (xdiff == 0 || ydiff == 0)
+        {
+            animator.MoveX = Mathf.Clamp(xdiff, -1f, 1f);
+            animator.MoveY = Mathf.Clamp(ydiff, -1f, 1f);
+        }
+        else
+            Debug.LogError("Error in Look Towards: You can't ask the character to look diagonally");
     }
-}
 
-public class DamageDetails
-{
-    public bool Fainted { get; set; }
-
-    public float Critical { get; set; }
-
-    public float TypeEffectiveness { get; set; }
+    public CharacterAnimator Animator
+    {
+        get => animator;
+    }
 }
