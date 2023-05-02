@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Cutscene : MonoBehaviour
+public class Custscene : MonoBehaviour
 {
-	public void c()
+	public void TopDownMovement1()
 	{
-		SceneManager.LoadScene("CarinCredit");
+		SceneManager.LoadScene("TopDownMovement 1");
 	}
 }
