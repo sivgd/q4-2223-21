@@ -11,7 +11,7 @@ public class CharacterParty : MonoBehaviour
     {
         get
         {
-            return character;
+            return characters;
         }
     }
 

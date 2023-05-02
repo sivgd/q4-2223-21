@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BattleHud : MonoBehaviour
+public class BattleHUD : MonoBehaviour
 {
     [SerializeField] Text nameText;
     [SerializeField] Text levelText;

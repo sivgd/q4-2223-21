@@ -142,7 +142,7 @@ public class BattleSystem : MonoBehaviour
         }
         yield return ShowStatusChanges(sourceUnit.Character);
 
-        move.PP--;
+        move.ME--;
         yield return dialogBox.TypeDialog($"{sourceUnit.Character.Base.Name} used {move.Base.Name}");
 
         if (CheckIfMoveHits(move, sourceUnit.Character, targetUnit.Character))
@@ -273,8 +273,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (faintedUnit.IsPlayerUnit)
         {
-            var nextPokemon = playerParty.GetHealthyCharacter();
-            if (nextPokemon != null)
+            var nextCharacter = playerParty.GetHealthyCharacter();
+            if (nextCharacter != null)
                 OpenPartyScreen();
             else
                 BattleOver(false);
@@ -338,7 +338,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (currentAction == 2)
             {
-                // Pokemon
+                // Characters
                 prevState = state;
                 OpenPartyScreen();
             }
@@ -367,7 +367,7 @@ public class BattleSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             var move = playerUnit.Character.Moves[currentMove];
-            if (move.PP == 0) return;
+            if (move.ME == 0) return;
 
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
