@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Cutscene : MonoBehaviour
 {
-	public void c()
-	{
-		SceneManager.LoadScene("CarinCredit");
-	}
+   public void topDownMovement1()
+   {
+		SceneManager.LoadScene("TopDownMovement1");
+   }
 }
