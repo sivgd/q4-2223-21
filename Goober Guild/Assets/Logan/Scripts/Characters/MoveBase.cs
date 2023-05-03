@@ -52,9 +52,9 @@ public class MoveBase : ScriptableObject
         get { return alwaysHits; }
     }
 
-    public int PP
+    public int ME
     {
-        get { return pp; }
+        get { return me; }
     }
 
     public int Priority

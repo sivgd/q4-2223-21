@@ -107268,7 +107268,7 @@ GameObject:
   - component: {fileID: 1677766100}
   - component: {fileID: 1677766101}
   m_Layer: 9
-  m_Name: Fov
+  m_Name: fov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

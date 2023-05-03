@@ -91,12 +91,12 @@ public class BattleSystem : MonoBehaviour
             if (enemyMovePriority > playerMovePriority)
                 playerGoesFirst = false;
             else if (enemyMovePriority == playerMovePriority)
-                playerGoesFirst = playerUnit.Character.Speed >= enemyUnit.Pokemon.Speed;
+                playerGoesFirst = playerUnit.Character.Speed >= enemyUnit.Character.Speed;
 
             var firstUnit = (playerGoesFirst) ? playerUnit : enemyUnit;
             var secondUnit = (playerGoesFirst) ? enemyUnit : playerUnit;
 
-            var secondPokemon = secondUnit.Character;
+            var secondCharacter = secondUnit.Character;
 
             // First Turn
             yield return RunMove(firstUnit, secondUnit, firstUnit.Character.CurrentMove);
@@ -221,13 +221,13 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.BattleOver) yield break;
         yield return new WaitUntil(() => state == BattleState.RunningTurn);
 
-        // Statuses like burn or psn will hurt the pokemon after the turn
+        // Statuses like burn or psn will hurt the character after the turn
         sourceUnit.Character.OnAfterTurn();
         yield return ShowStatusChanges(sourceUnit.Character);
         yield return sourceUnit.Hud.UpdateHP();
         if (sourceUnit.Character.HP <= 0)
         {
-            yield return dialogBox.TypeDialog($"{sourceUnit.Character.Base.Name} Fainted");
+            yield return dialogBox.TypeDialog($"{sourceUnit.Character.Base.Name} has fallen...");
             sourceUnit.PlayFaintAnimation();
             yield return new WaitForSeconds(2f);
 
@@ -426,9 +426,9 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator SwitchPokemon(Character newCharacter)
+    IEnumerator SwitchCharacter(Character newCharacter)
     {
-        if (playerUnit.Pokemon.HP > 0)
+        if (playerUnit.Character.HP > 0)
         {
             yield return dialogBox.TypeDialog($"Retreat {playerUnit.Character.Base.Name}!");
             playerUnit.PlayFaintAnimation();

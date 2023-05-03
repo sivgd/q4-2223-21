@@ -17,7 +17,7 @@ public class CharacterParty : MonoBehaviour
 
     private void Start()
     {
-        foreach (var character in Characters)
+        foreach (var character in characters)
         {
             character.Init();
         }

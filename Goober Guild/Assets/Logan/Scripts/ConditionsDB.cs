@@ -26,7 +26,7 @@ public class ConditionsDB
                 OnAfterTurn = (Character character) =>
                 {
                     character.UpdateHP(character.MaxHp / 8);
-                    character.StatusChanges.Enqueue($"{charatcer.Base.Name} hurt itself due to poison");
+                    character.StatusChanges.Enqueue($"{character.Base.Name} hurt itself due to poison");
                 }
             }
         },
@@ -118,7 +118,7 @@ public class ConditionsDB
                 OnStart = (Character character) =>
                 {
                     // Confused for 1 - 4 turns
-                    pokemon.VolatileStatusTime = Random.Range(1, 5);
+                    character.VolatileStatusTime = Random.Range(1, 5);
                     Debug.Log($"Will be confused for {character.VolatileStatusTime} moves");
                 },
                 OnBeforeMove = (Character character) =>
@@ -129,7 +129,7 @@ public class ConditionsDB
                         character.StatusChanges.Enqueue($"{character.Base.Name} kicked out of confusion!");
                         return true;
                     }
-                    pokemon.VolatileStatusTime--;
+                    character.VolatileStatusTime--;
 
                     // 50% chance to do a move
                     if (Random.Range(1, 3) == 1)

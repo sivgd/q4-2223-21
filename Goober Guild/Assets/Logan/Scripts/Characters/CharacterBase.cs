@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "Character", menuName = "Character/Create new character")]
 public class CharacterBase : ScriptableObject
 {
@@ -11,13 +10,13 @@ public class CharacterBase : ScriptableObject
     [TextArea]
     [SerializeField] string description;
 
-    [SerializeField] public Sprite FrontSprite;
-    [SerializeField] public Sprite BackSprite;
+    [SerializeField] Sprite frontSprite;
+    [SerializeField] Sprite backSprite;
 
-    [SerializeField] public CharacterType type1;
-    [SerializeField] public CharacterType type2;
+    [SerializeField] CharacterType type1;
+    [SerializeField] CharacterType type2;
 
-    //Base Stats
+    // Base Stats
     [SerializeField] int maxHp;
     [SerializeField] int attack;
     [SerializeField] int defense;
@@ -35,6 +34,26 @@ public class CharacterBase : ScriptableObject
     public string Description
     {
         get { return description; }
+    }
+
+    public Sprite FrontSprite
+    {
+        get { return frontSprite; }
+    }
+
+    public Sprite BackSprite
+    {
+        get { return backSprite; }
+    }
+
+    public CharacterType Type1
+    {
+        get { return type1; }
+    }
+
+    public CharacterType Type2
+    {
+        get { return type2; }
     }
 
     public int MaxHp
@@ -74,7 +93,6 @@ public class CharacterBase : ScriptableObject
 }
 
 [System.Serializable]
-
 public class LearnableMove
 {
     [SerializeField] MoveBase moveBase;
@@ -97,6 +115,19 @@ public enum CharacterType
     DAMAGE,
     SPEED,
     DEFENSE
+}
+
+public enum Stat
+{
+    Attack,
+    Defense,
+    SpAttack,
+    SpDefense,
+    Speed,
+
+    // These 2 are not actual stats, they're used to boost the moveAccuracy
+    Accuracy,
+    Evasion
 }
 
 public class TypeChart
