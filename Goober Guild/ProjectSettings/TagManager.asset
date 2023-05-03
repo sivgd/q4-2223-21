@@ -18,8 +18,8 @@ TagManager:
   - Solid Objects
   - Foilage
   - Interactable
-  - 
-  - 
+  - PlayerLayer
+  - FovLayer
   - 
   - 
   - 

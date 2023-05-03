@@ -142,7 +142,7 @@ public class BattleSystem : MonoBehaviour
         }
         yield return ShowStatusChanges(sourceUnit.Pokemon);
 
-        move.PP--;
+        move.ME--;
         yield return dialogBox.TypeDialog($"{sourceUnit.Pokemon.Base.Name} used {move.Base.Name}");
 
         if (CheckIfMoveHits(move, sourceUnit.Pokemon, targetUnit.Pokemon))
@@ -325,7 +325,7 @@ public class BattleSystem : MonoBehaviour
 
         dialogBox.UpdateActionSelection(currentAction);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (currentAction == 0)
             {
@@ -364,10 +364,10 @@ public class BattleSystem : MonoBehaviour
 
         dialogBox.UpdateMoveSelection(currentMove, playerUnit.Pokemon.Moves[currentMove]);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             var move = playerUnit.Pokemon.Moves[currentMove];
-            if (move.PP == 0) return;
+            if (move.ME == 0) return;
 
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
@@ -396,7 +396,7 @@ public class BattleSystem : MonoBehaviour
 
         partyScreen.UpdateMemberSelection(currentMember);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             var selectedMember = playerParty.Pokemons[currentMember];
             if (selectedMember.HP <= 0)

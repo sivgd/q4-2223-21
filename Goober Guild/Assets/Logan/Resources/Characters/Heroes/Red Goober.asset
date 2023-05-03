@@ -9,23 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b856612d6ac719449eb24e3f2205116, type: 3}
   m_Name: Red Goober
   m_EditorClassIdentifier: 
-  name: Herbert
-  description: Herbert the red goober
-  FrontSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
-  BackSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
-  type1: 3
-  type2: 0
-  maxHp: 65
-  attack: 45
-  defense: 75
-  spAttack: 55
-  spDefense: 85
-  speed: 55
-  learnableMoves:
-  - moveBase: {fileID: 11400000, guid: cb16343825fd33040a5abbaf4d05d5b5, type: 2}
-    level: 1
-  - moveBase: {fileID: 11400000, guid: 47631f33ce3b65f4c9baddfb90256448, type: 2}
-    level: 7
+  moveSpeed: 0
