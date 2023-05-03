@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Custscene : MonoBehaviour
+public class Cutscene : MonoBehaviour
 {
 	public void TopDownMovement1()
 	{
