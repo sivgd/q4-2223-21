@@ -27,7 +27,7 @@ public class PartyScreen : MonoBehaviour
                 memberSlots[i].gameObject.SetActive(false);
         }
 
-        messageText.text = "Select a character";
+        messageText.text = "Select a hero";
     }
 
     public void UpdateMemberSelection(int selectedMember)

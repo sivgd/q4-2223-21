@@ -1,261 +1,88 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[System.Serializable]
-public class Character
+public class Character : MonoBehaviour
 {
-    [SerializeField] CharacterBase _base;
-    [SerializeField] int level;
+    public float moveSpeed;
 
-    public CharacterBase Base
+    public bool IsMoving { get; private set; }
+
+    CharacterAnimator animator;
+    private void Awake()
     {
-        get
+        animator = GetComponent<CharacterAnimator>();
+    }
+
+    public IEnumerator Move(Vector2 moveVec, Action OnMoveOver = null)
+    {
+        animator.MoveX = Mathf.Clamp(moveVec.x, -1f, 1f);
+        animator.MoveY = Mathf.Clamp(moveVec.y, -1f, 1f);
+
+        var targetPos = transform.position;
+        targetPos.x += moveVec.x;
+        targetPos.y += moveVec.y;
+
+        if (!IsPathClear(targetPos))
+            yield break;
+
+        IsMoving = true;
+
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            return _base;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
         }
-    }
-    public int Level
-    {
-        get
-        {
-            return level;
-        }
+        transform.position = targetPos;
+
+        IsMoving = false;
+
+        OnMoveOver?.Invoke();
     }
 
-    public int HP { get; set; }
-    public List<Move> Moves { get; set; }
-    public Move CurrentMove { get; set; }
-    public Dictionary<Stat, int> Stats { get; private set; }
-    public Dictionary<Stat, int> StatBoosts { get; private set; }
-    public Condition Status { get; private set; }
-    public int StatusTime { get; set; }
-    public Condition VolatileStatus { get; private set; }
-    public int VolatileStatusTime { get; set; }
-
-
-    public Queue<string> StatusChanges { get; private set; } = new Queue<string>();
-    public bool HpChanged { get; set; }
-    public event System.Action OnStatusChanged;
-
-    public void Init()
+    public void HandleUpdate()
     {
-        // Generate Moves
-        Moves = new List<Move>();
-        foreach (var move in Base.LearnableMoves)
-        {
-            if (move.Level <= Level)
-                Moves.Add(new Move(move.Base));
+        animator.IsMoving = IsMoving;
+    }
 
-            if (Moves.Count >= 4)
-                break;
+    private bool IsPathClear(Vector3 targetPos)
+    {
+        var diff = targetPos - transform.position;
+        var dir = diff.normalized;
+
+        if (Physics2D.BoxCast(transform.position + dir, new Vector2(0.2f, 0.2f), 0f, dir, diff.magnitude - 1, GameLayers.i.SolidLayer | GameLayers.i.InteractableLayer | GameLayers.i.PlayerLayer) == true)
+            return false;
+
+        return true;
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, GameLayers.i.SolidLayer | GameLayers.i.InteractableLayer) != null)
+        {
+            return false;
         }
 
-        CalculateStats();
-        HP = MaxHp;
-
-        ResetStatBoost();
-        Status = null;
-        VolatileStatus = null;
+        return true;
     }
 
-    void CalculateStats()
+    public void LookTowards(Vector3 targetPos)
     {
-        Stats = new Dictionary<Stat, int>();
-        Stats.Add(Stat.Attack, Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5);
-        Stats.Add(Stat.Defense, Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5);
-        Stats.Add(Stat.SpAttack, Mathf.FloorToInt((Base.SpAttack * Level) / 100f) + 5);
-        Stats.Add(Stat.SpDefense, Mathf.FloorToInt((Base.SpDefense * Level) / 100f) + 5);
-        Stats.Add(Stat.Speed, Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5);
+        var xdiff = Mathf.Floor(targetPos.x) - Mathf.Floor(transform.position.x);
+        var ydiff = Mathf.Floor(targetPos.y) - Mathf.Floor(transform.position.y);
 
-        MaxHp = Mathf.FloorToInt((Base.MaxHp * Level) / 100f) + 10 + Level;
-    }
-
-    void ResetStatBoost()
-    {
-        StatBoosts = new Dictionary<Stat, int>()
+        if (xdiff == 0 || ydiff == 0)
         {
-            {Stat.Attack, 0},
-            {Stat.Defense, 0},
-            {Stat.SpAttack, 0},
-            {Stat.SpDefense, 0},
-            {Stat.Speed, 0},
-            {Stat.Accuracy, 0},
-            {Stat.Evasion, 0},
-        };
-    }
-
-    int GetStat(Stat stat)
-    {
-        int statVal = Stats[stat];
-
-        // Apply stat boost
-        int boost = StatBoosts[stat];
-        var boostValues = new float[] { 1f, 1.5f, 2f, 2.5f, 3f, 3.5f, 4f };
-
-        if (boost >= 0)
-            statVal = Mathf.FloorToInt(statVal * boostValues[boost]);
+            animator.MoveX = Mathf.Clamp(xdiff, -1f, 1f);
+            animator.MoveY = Mathf.Clamp(ydiff, -1f, 1f);
+        }
         else
-            statVal = Mathf.FloorToInt(statVal / boostValues[-boost]);
-
-        return statVal;
+            Debug.LogError("Error in Look Towards: You can't ask the character to look diagonally");
     }
 
-    public void ApplyBoosts(List<StatBoost> statBoosts)
+    public CharacterAnimator Animator
     {
-        foreach (var statBoost in statBoosts)
-        {
-            var stat = statBoost.stat;
-            var boost = statBoost.boost;
-
-            StatBoosts[stat] = Mathf.Clamp(StatBoosts[stat] + boost, -6, 6);
-
-            if (boost > 0)
-                StatusChanges.Enqueue($"{Base.Name}'s {stat} rose!");
-            else
-                StatusChanges.Enqueue($"{Base.Name}'s {stat} fell!");
-
-            Debug.Log($"{stat} has been boosted to {StatBoosts[stat]}");
-        }
+        get => animator;
     }
-
-    public int Attack
-    {
-        get { return GetStat(Stat.Attack); }
-    }
-
-    public int Defense
-    {
-        get { return GetStat(Stat.Defense); }
-    }
-
-    public int SpAttack
-    {
-        get { return GetStat(Stat.SpAttack); }
-    }
-
-    public int SpDefense
-    {
-        get { return GetStat(Stat.SpDefense); }
-    }
-
-    public int Speed
-    {
-        get
-        {
-            return GetStat(Stat.Speed);
-        }
-    }
-
-    public int MaxHp { get; private set; }
-
-    public DamageDetails TakeDamage(Move move, Character attacker)
-    {
-        float critical = 1f;
-        if (Random.value * 100f <= 6.25f)
-            critical = 2f;
-
-        float type = TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type1) * TypeChart.GetEffectiveness(move.Base.Type, this.Base.Type2);
-
-        var damageDetails = new DamageDetails()
-        {
-            TypeEffectiveness = type,
-            Critical = critical,
-            Fainted = false
-        };
-
-        float attack = (move.Base.Category == MoveCategory.Special) ? attacker.SpAttack : attacker.Attack;
-        float defense = (move.Base.Category == MoveCategory.Special) ? SpDefense : Defense;
-
-        float modifiers = Random.Range(0.85f, 1f) * type * critical;
-        float a = (2 * attacker.Level + 10) / 250f;
-        float d = a * move.Base.Power * ((float)attack / defense) + 2;
-        int damage = Mathf.FloorToInt(d * modifiers);
-
-        UpdateHP(damage);
-
-        return damageDetails;
-    }
-
-    public void UpdateHP(int damage)
-    {
-        HP = Mathf.Clamp(HP - damage, 0, MaxHp);
-        HpChanged = true;
-    }
-
-    public void SetStatus(ConditionID conditionId)
-    {
-        if (Status != null) return;
-
-        Status = ConditionsDB.Conditions[conditionId];
-        Status?.OnStart?.Invoke(this);
-        StatusChanges.Enqueue($"{Base.Name} {Status.StartMessage}");
-        OnStatusChanged?.Invoke();
-    }
-
-    public void CureStatus()
-    {
-        Status = null;
-        OnStatusChanged?.Invoke();
-    }
-
-    public void SetVolatileStatus(ConditionID conditionId)
-    {
-        if (VolatileStatus != null) return;
-
-        VolatileStatus = ConditionsDB.Conditions[conditionId];
-        VolatileStatus?.OnStart?.Invoke(this);
-        StatusChanges.Enqueue($"{Base.Name} {VolatileStatus.StartMessage}");
-    }
-
-    public void CureVolatileStatus()
-    {
-        VolatileStatus = null;
-    }
-
-    public Move GetRandomMove()
-    {
-        var movesWithME = Moves.Where(x => x.ME > 0).ToList();
-
-        int r = Random.Range(0, movesWithME.Count);
-        return movesWithME[r];
-    }
-
-    public bool OnBeforeMove()
-    {
-        bool canPerformMove = true;
-        if (Status?.OnBeforeMove != null)
-        {
-            if (!Status.OnBeforeMove(this))
-                canPerformMove = false;
-        }
-
-        if (VolatileStatus?.OnBeforeMove != null)
-        {
-            if (!VolatileStatus.OnBeforeMove(this))
-                canPerformMove = false;
-        }
-
-        return canPerformMove;
-    }
-
-    public void OnAfterTurn()
-    {
-        Status?.OnAfterTurn?.Invoke(this);
-        VolatileStatus?.OnAfterTurn?.Invoke(this);
-    }
-
-    public void OnBattleOver()
-    {
-        VolatileStatus = null;
-        ResetStatBoost();
-    }
-}
-
-public class DamageDetails
-{
-    public bool Fainted { get; set; }
-    public float Critical { get; set; }
-    public float TypeEffectiveness { get; set; }
 }

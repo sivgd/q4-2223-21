@@ -16,7 +16,7 @@ public class BattleDialogBox : MonoBehaviour
     [SerializeField] List<Text> actionTexts;
     [SerializeField] List<Text> moveTexts;
 
-    [SerializeField] Text meText;
+    [SerializeField] Text ppText;
     [SerializeField] Text typeText;
 
     public void SetDialog(string dialog)
@@ -32,6 +32,8 @@ public class BattleDialogBox : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+
+        yield return new WaitForSeconds(1f);
     }
 
     public void EnableDialogText(bool enabled)
@@ -52,7 +54,7 @@ public class BattleDialogBox : MonoBehaviour
 
     public void UpdateActionSelection(int selectedAction)
     {
-        for (int i=0; i<actionTexts.Count; ++i)
+        for (int i = 0; i < actionTexts.Count; ++i)
         {
             if (i == selectedAction)
                 actionTexts[i].color = highlightedColor;
@@ -61,7 +63,7 @@ public class BattleDialogBox : MonoBehaviour
         }
     }
 
-    public void UpdateMoveSelection (int selectedMove, Move move)
+    public void UpdateMoveSelection(int selectedMove, Move move)
     {
         for (int i = 0; i < moveTexts.Count; ++i)
         {
@@ -71,18 +73,21 @@ public class BattleDialogBox : MonoBehaviour
                 moveTexts[i].color = Color.black;
         }
 
-        meText.text = $"ME {move.ME}/{move.Base.ME}";
+        ppText.text = $"ME {move.ME}/{move.Base.ME}";
         typeText.text = move.Base.Type.ToString();
+
+        if (move.ME == 0)
+            ppText.color = Color.red;
+        else
+            ppText.color = Color.black;
     }
 
     public void SetMoveNames(List<Move> moves)
     {
-        for (int i=0; i<moveTexts.Count; ++i)
+        for (int i = 0; i < moveTexts.Count; ++i)
         {
             if (i < moves.Count)
-            {
                 moveTexts[i].text = moves[i].Base.Name;
-            }
             else
                 moveTexts[i].text = "-";
         }
