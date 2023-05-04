@@ -894,7 +894,6 @@ GameObject:
   m_Component:
   - component: {fileID: 432356352}
   - component: {fileID: 432356351}
-  - component: {fileID: 432356350}
   - component: {fileID: 432356348}
   - component: {fileID: 432356353}
   - component: {fileID: 432356349}
@@ -950,25 +949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a154600fac776ee4a9139fb8d6c47c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &432356350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432356347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb82ecaf66894a34c8a8e8af7aa94309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pokemons:
-  - _base: {fileID: 0}
-    level: 0
-  - _base: {fileID: 0}
-    level: 0
-  - _base: {fileID: 0}
-    level: 0
 --- !u!212 &432356351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9103,7 +9083,7 @@ GameObject:
   - component: {fileID: 616560030}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9120,7 +9100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b7763cfb6a6744f9e61917a1b32f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 432356349}
+  playerController: {fileID: 0}
   battleSystem: {fileID: 1430804821}
   worldCamera: {fileID: 933039452}
 --- !u!4 &616560031

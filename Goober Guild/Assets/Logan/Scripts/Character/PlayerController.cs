@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             Interact();
     }
 
-    void Interact()
+     void Interact()
     {
         var facingDir = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPos = transform.position + facingDir;
@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
-
+    
+    
     private void OnMoveOver()
     {
         CheckForEncounters();
