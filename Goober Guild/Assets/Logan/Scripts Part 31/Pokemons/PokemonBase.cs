@@ -97,8 +97,8 @@ public class LearnableMove
 public enum PokemonType
 {
     None,
-    Defense,
     Speed,
+    Defense,
     Damage
 }
 
@@ -119,10 +119,10 @@ public class TypeChart
 {
     static float[][] chart =
     {
-         //                       Def   Spd   Dmg
-        /*Defense*/  new float[] {1f,   0.5f, 2f },
-        /*Speed*/    new float[] {2f,   1f, 0.5f },
-        /*Damage*/   new float[] {0.5f, 2f,   1f }
+         //                      Spd   Def   Dmg
+        /*Speed*/   new float[] {1f,   1f,   1f },
+        /*Defense*/ new float[] {1f,   0.5f, 0.5f },
+        /*Damage*/  new float[] {1f,   2f,   0.5f }
     };
 
     public static float GetEffectiveness(PokemonType attackType, PokemonType defendType)

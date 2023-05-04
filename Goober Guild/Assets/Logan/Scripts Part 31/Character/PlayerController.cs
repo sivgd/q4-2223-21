@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
 
         character.HandleUpdate();
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Z))
             Interact();
     }
 
-     void Interact()
+    void Interact()
     {
         var facingDir = new Vector3(character.Animator.MoveX, character.Animator.MoveY);
         var interactPos = transform.position + facingDir;
@@ -51,8 +51,7 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
-    
-    
+
     private void OnMoveOver()
     {
         CheckForEncounters();
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForEncounters()
     {
-        if (Physics2D.OverlapCircle(transform.position, 0.1f, GameLayers.i.GrassLayer) != null)
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, GameLayers.i.GrassLayer) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 10)
             {

@@ -9,23 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8081099ece24d3c41ba2261cf657c673, type: 3}
+  m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
   m_Name: Yellow Goober
   m_EditorClassIdentifier: 
-  name: Sunny
-  description: Sunflower the Yellow Goober
-  FrontSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
-  BackSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
-  type1: 1
+  name: Max
+  description: Max the blue goober
+  frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
+  type1: 0
   type2: 0
-  maxHp: 65
-  attack: 75
-  defense: 45
-  spAttack: 85
-  spDefense: 56
-  speed: 45
-  learnableMoves:
-  - moveBase: {fileID: 11400000, guid: 7c85c38e480061945a43a3389965717e, type: 2}
-    level: 1
-  - moveBase: {fileID: 11400000, guid: f8b29799645cc6545a9d91c806250329, type: 2}
-    level: 7
+  maxHp: 0
+  attack: 0
+  defense: 0
+  spAttack: 0
+  spDefense: 0
+  speed: 0
+  learnableMoves: []

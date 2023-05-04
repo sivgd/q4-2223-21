@@ -32,16 +32,16 @@ public class GameController : MonoBehaviour
             }
         };
 
-        //DialogManager.Instance.OnShowDialog += () =>
-       // {
-            //state = GameState.Dialog;
-       // };
+        DialogManager.Instance.OnShowDialog += () =>
+        {
+            state = GameState.Dialog;
+        };
 
-       // DialogManager.Instance.OnCloseDialog += () =>
-       // {
-           // if (state == GameState.Dialog)
-             //   state = GameState.FreeRoam;
-      //  };
+        DialogManager.Instance.OnCloseDialog += () =>
+        {
+            if (state == GameState.Dialog)
+                state = GameState.FreeRoam;
+        };
     }
 
     void StartBattle()
