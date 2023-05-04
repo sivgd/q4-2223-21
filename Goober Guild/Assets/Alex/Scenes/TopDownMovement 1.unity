@@ -895,8 +895,8 @@ GameObject:
   - component: {fileID: 432356352}
   - component: {fileID: 432356351}
   - component: {fileID: 432356348}
-  - component: {fileID: 432356349}
   - component: {fileID: 432356353}
+  - component: {fileID: 432356349}
   m_Layer: 0
   m_Name: Fredrick
   m_TagString: Player
@@ -9083,7 +9083,7 @@ GameObject:
   - component: {fileID: 616560030}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9100,7 +9100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b7763cfb6a6744f9e61917a1b32f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 432356349}
+  playerController: {fileID: 0}
   battleSystem: {fileID: 1430804821}
   worldCamera: {fileID: 933039452}
 --- !u!4 &616560031
