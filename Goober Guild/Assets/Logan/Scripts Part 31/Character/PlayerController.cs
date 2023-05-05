@@ -5,12 +5,49 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public event Action OnEncountered;
+    public float moveSpeed;
+    public LayerMask solidObjectsLayer;
+    public LayerMask grassLayer;
+
+     public event Action OnEncountered;
     public event Action<Collider2D> OnEnterTrainersView;
 
+    private bool isMoving;
     private Vector2 input;
-
+    private Animator animator;
     private Character character;
+
+    private void Update()
+    {
+        if (!isMoving)
+        {
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+            if(input.x != 0) input.y = 0;
+
+            if (input != Vector2.zero)
+            {
+                var targetPos = transform.position;
+                targetPos.x += input.x;
+                targetPos.y += input.y;
+                StartCoroutine(Move(targetPos));
+            }
+        }
+    }
+    
+    IEnumerator Move(Vector3 targetPos)
+    {
+        isMoving = true;
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = targetPos;
+        isMoving = false;
+    }
+    
+    
     private void Awake()
     {
         character = GetComponent<Character>();
@@ -36,6 +73,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
             Interact();
+    }
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
     }
 
     void Interact()

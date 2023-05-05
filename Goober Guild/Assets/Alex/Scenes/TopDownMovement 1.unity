@@ -968,6 +968,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a154600fac776ee4a9139fb8d6c47c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 4
+  solidObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  grassLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!212 &432356351
 SpriteRenderer:
   m_ObjectHideFlags: 0
