@@ -9,12 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e11ee4610977d534e8628b1a4474390c, type: 3}
+  m_Script: {fileID: 11500000, guid: f75524a02c41cff4c8ed3d56e5257cba, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: 
-  name: Bash
-  description: move for fighter/defense characters
-  type: 3
+  name: Punch
+  description: DEFENSE move
+  type: 2
   power: 35
   accuracy: 95
+  alwaysHits: 0
   me: 30
+  priority: 0
+  category: 0
+  effects:
+    boosts: []
+    status: 0
+    volatileStatus: 0
+  secondaries: []
+  target: 0

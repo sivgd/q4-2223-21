@@ -896,6 +896,7 @@ GameObject:
   - component: {fileID: 432356351}
   - component: {fileID: 432356348}
   - component: {fileID: 432356349}
+  - component: {fileID: 432356353}
   - component: {fileID: 432356350}
   m_Layer: 9
   m_Name: Fredrick
@@ -950,12 +951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokemons:
-  - _base: {fileID: 0}
-    level: 0
-  - _base: {fileID: 0}
-    level: 0
-  - _base: {fileID: 0}
-    level: 0
+  - _base: {fileID: 11400000, guid: cf6e07c055cce934cb686713cc0b3e02, type: 2}
+    level: 5
 --- !u!114 &432356350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,13 +965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a154600fac776ee4a9139fb8d6c47c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  solidObjectsLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  grassLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!212 &432356351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1041,6 +1031,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432356353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432356347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b856612d6ac719449eb24e3f2205116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4
 --- !u!1 &434549222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -99.99998}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 175, y: -99.99998}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 1.0000002}
 --- !u!114 &434549224
 MonoBehaviour:
@@ -1100,7 +1103,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c98f6ca12411d434c91afe036223c8fb, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9094,6 +9097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616560031}
   - component: {fileID: 616560030}
+  - component: {fileID: 616560032}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -9130,6 +9134,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &616560032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616560029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b536587431a685d429fc535632a06728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solidObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  grassLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  fovLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &664549755
 GameObject:
   m_ObjectHideFlags: 0
@@ -19438,8 +19469,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 600, y: 0.000030517578}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 825, y: 0.000022888184}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 1.0000002}
 --- !u!114 &1214759370
 MonoBehaviour:
@@ -19463,7 +19494,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c98f6ca12411d434c91afe036223c8fb, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -158819,8 +158850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildPokemons:
-  - _base: {fileID: 0}
-    level: 5
+  - _base: {fileID: 11400000, guid: 77f5af2a0a9bf514fa55612d00e0384c, type: 2}
+    level: 3
   - _base: {fileID: 0}
     level: 0
 --- !u!1 &1512563717
@@ -159389,8 +159420,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 600, y: -99.99998}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 825, y: -99.99998}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 1.0000002}
 --- !u!114 &1781205452
 MonoBehaviour:
@@ -159414,7 +159445,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c98f6ca12411d434c91afe036223c8fb, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -160235,7 +160266,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 100}
+  m_CellSize: {x: 350, y: 100}
   m_Spacing: {x: 300, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -160273,8 +160304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: 0.000030517578}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 175, y: 0.000022888184}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 1.0000002}
 --- !u!114 &2080529412
 MonoBehaviour:
@@ -160298,7 +160329,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c98f6ca12411d434c91afe036223c8fb, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
