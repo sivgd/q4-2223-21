@@ -14,7 +14,7 @@ public class MoveBase : ScriptableObject
     [SerializeField] int power;
     [SerializeField] int accuracy;
     [SerializeField] bool alwaysHits;
-    [SerializeField] int pp;
+    [SerializeField] int me;
     [SerializeField] int priority;
 
     [SerializeField] MoveCategory category;
@@ -46,8 +46,8 @@ public class MoveBase : ScriptableObject
         get { return alwaysHits; }
     }
 
-    public int PP {
-        get { return pp; }
+    public int ME {
+        get { return me; }
     }
 
     public int Priority {
