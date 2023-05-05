@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
+  m_Name: Mouse Rogue
+  m_EditorClassIdentifier: 
+  name: Mouse Rogue
+  description: 
+  frontSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
+  backSprite: {fileID: -8627277965616818638, guid: b39886522304c93448476586de05a160, type: 3}
+  type1: 1
+  type2: 0
+  maxHp: 35
+  attack: 1
+  defense: 1
+  spAttack: 1
+  spDefense: 1
+  speed: 1
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 8d080e6c3094d414788d116409a72c31, type: 2}
+    level: 1

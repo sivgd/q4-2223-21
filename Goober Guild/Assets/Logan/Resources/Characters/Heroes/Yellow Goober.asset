@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
   m_Name: Yellow Goober
   m_EditorClassIdentifier: 
-  name: Max
-  description: Max the blue goober
-  frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  type1: 0
+  name: Sunny
+  description: Sunny the Yellow Goober
+  frontSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
+  backSprite: {fileID: 5118403243671794843, guid: cd9d6b4d7253a1a4f8b1760554313b8b, type: 3}
+  type1: 3
   type2: 0
-  maxHp: 0
-  attack: 0
-  defense: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  learnableMoves: []
+  maxHp: 50
+  attack: 65
+  defense: 45
+  spAttack: 75
+  spDefense: 50
+  speed: 40
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: c874df8f5d7d35c488f0f9517ddaa455, type: 2}
+    level: 1
+  - moveBase: {fileID: 0}
+    level: 0
