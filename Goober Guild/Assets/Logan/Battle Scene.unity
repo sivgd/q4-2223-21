@@ -646,7 +646,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 381045409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede8580f871de694e9aa2ec01dda2d23, type: 3}
+  m_Script: {fileID: 11500000, guid: 88020bf8a8b91274fb698df84996ddff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1532421827}
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1012325106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede8580f871de694e9aa2ec01dda2d23, type: 3}
+  m_Script: {fileID: 11500000, guid: 88020bf8a8b91274fb698df84996ddff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 1079391199}
@@ -2315,12 +2315,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1150244431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d741ce65dfaf6c4cbcc00da23fbb04f, type: 3}
+  m_Script: {fileID: 11500000, guid: 548dcca6051617646a90b61942d989d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1555566537}
-  levelText: {fileID: 1276458874}
+  nameText: {fileID: 596790576}
+  levelText: {fileID: 872661951}
+  statusText: {fileID: 0}
   hpBar: {fileID: 381045411}
+  psnColor: {r: 0, g: 0, b: 0, a: 0}
+  brnColor: {r: 0, g: 0, b: 0, a: 0}
+  slpColor: {r: 0, g: 0, b: 0, a: 0}
+  parColor: {r: 0, g: 0, b: 0, a: 0}
+  frzColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1276458872
 GameObject:
   m_ObjectHideFlags: 0
@@ -106622,12 +106628,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1536008153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d741ce65dfaf6c4cbcc00da23fbb04f, type: 3}
+  m_Script: {fileID: 11500000, guid: 548dcca6051617646a90b61942d989d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 596790576}
   levelText: {fileID: 872661951}
+  statusText: {fileID: 0}
   hpBar: {fileID: 1012325107}
+  psnColor: {r: 0, g: 0, b: 0, a: 0}
+  brnColor: {r: 0, g: 0, b: 0, a: 0}
+  slpColor: {r: 0, g: 0, b: 0, a: 0}
+  parColor: {r: 0, g: 0, b: 0, a: 0}
+  frzColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &1536008155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -106873,15 +106885,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616968921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c67387da847fd48b27d154f10c26c8, type: 3}
+  m_Script: {fileID: 11500000, guid: a8bd298c2398a664ca833e92576325b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUnit: {fileID: 1622634039}
-  enemyUnit: {fileID: 929435276}
-  playerHud: {fileID: 1150244435}
-  enemyHud: {fileID: 1536008154}
-  dialogBox: {fileID: 59606688}
-  partyScreen: {fileID: 2060780644}
+  playerUnit: {fileID: 0}
+  enemyUnit: {fileID: 0}
+  dialogBox: {fileID: 0}
+  partyScreen: {fileID: 0}
 --- !u!1 &1622634034
 GameObject:
   m_ObjectHideFlags: 0
@@ -106967,10 +106977,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622634034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e2c60ee815f3a4cbbc67eaf25d28a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 754bfd2a7a635f14a964c5c1394393d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerUnit: 1
+  isPlayerUnit: 0
+  hud: {fileID: 0}
 --- !u!224 &1639162820 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6671513068621566557, guid: 5aba8c7717c986f45879847a8fa9fd6f, type: 3}
@@ -108800,7 +108811,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060780640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98eca0e34d70b143a78237362268882, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ed22cd5d6ad7bd4ea036cf66b89d890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   messageText: {fileID: 82999015}

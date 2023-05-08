@@ -120,9 +120,9 @@ public class TypeChart
     static float[][] chart =
     {
          //                      Spd   Def   Dmg
-        /*Speed*/   new float[] {1f,   1f,   1f },
-        /*Defense*/ new float[] {1f,   0.5f, 0.5f },
-        /*Damage*/  new float[] {1f,   2f,   0.5f }
+        /*Speed*/   new float[] {1f,   2f,  0.5f},
+        /*Defense*/ new float[] {0.5f, 1f,   2f },
+        /*Damage*/  new float[] {2f,   0.5f, 1f }
     };
 
     public static float GetEffectiveness(PokemonType attackType, PokemonType defendType)
