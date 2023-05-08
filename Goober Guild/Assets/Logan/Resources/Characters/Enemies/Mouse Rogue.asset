@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
+  m_Script: {fileID: 11500000, guid: 21405b840242df94c866ce7772600264, type: 3}
   m_Name: Mouse Rogue
   m_EditorClassIdentifier: 
   name: Mouse Rogue
@@ -24,6 +24,13 @@ MonoBehaviour:
   spAttack: 55
   spDefense: 50
   speed: 75
+  expYield: 0
+  growthRate: 0
+  catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 8d080e6c3094d414788d116409a72c31, type: 2}
     level: 1
+  - moveBase: {fileID: 11400000, guid: 619872eacd521aa4f85f44e2152f2576, type: 2}
+    level: 7
+  learnableByItems: []
+  evolutions: []

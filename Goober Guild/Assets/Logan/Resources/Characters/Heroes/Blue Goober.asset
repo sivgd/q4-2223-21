@@ -9,23 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
+  m_Script: {fileID: 11500000, guid: 21405b840242df94c866ce7772600264, type: 3}
   m_Name: Blue Goober
   m_EditorClassIdentifier: 
   name: Max
   description: Max the blue goober
   frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
   backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  type1: 1
+  type1: 0
   type2: 0
   maxHp: 50
-  attack: 45
-  defense: 40
-  spAttack: 55
-  spDefense: 50
+  attack: 35
+  defense: 35
+  spAttack: 45
+  spDefense: 45
   speed: 75
+  expYield: 64
+  growthRate: 1
+  catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 8d080e6c3094d414788d116409a72c31, type: 2}
     level: 1
   - moveBase: {fileID: 11400000, guid: 619872eacd521aa4f85f44e2152f2576, type: 2}
-    level: 5
+    level: 6
+  learnableByItems: []
+  evolutions: []
