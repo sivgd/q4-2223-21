@@ -9,21 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ea1ce836897d14ab82a1f54366c081, type: 3}
+  m_Script: {fileID: 11500000, guid: f75524a02c41cff4c8ed3d56e5257cba, type: 3}
   m_Name: Potion Splash
   m_EditorClassIdentifier: 
   name: Potion Splash
-  description: Damage type
-  type: 3
+  description: 
+  type: 0
   power: 35
-  accuracy: 85
-  alwaysHits: 0
-  pp: 30
-  priority: 0
-  category: 0
-  effects:
-    boosts: []
-    status: 0
-    volatileStatus: 0
-  secondaries: []
-  target: 0
+  accuracy: 100
+  pp: 20

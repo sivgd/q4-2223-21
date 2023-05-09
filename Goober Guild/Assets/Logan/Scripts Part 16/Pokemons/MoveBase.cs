@@ -13,7 +13,7 @@ public class MoveBase : ScriptableObject
     [SerializeField] PokemonType type;
     [SerializeField] int power;
     [SerializeField] int accuracy;
-    [SerializeField] int pp;
+    [SerializeField] int me;
 
     public string Name {
         get { return name; }
@@ -35,8 +35,8 @@ public class MoveBase : ScriptableObject
         get { return accuracy; }
     }
 
-    public int PP {
-        get { return pp; }
+    public int ME {
+        get { return me; }
     }
 
     public bool IsSpecial {

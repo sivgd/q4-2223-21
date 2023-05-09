@@ -97,34 +97,19 @@ public class LearnableMove
 public enum PokemonType
 {
     None,
-    Normal,
-    Fire,
-    Water,
-    Electric,
-    Grass,
-    Ice,
-    Fighting,
-    Poison,
-    Ground,
-    Flying,
-    Psychic,
-    Bug,
-    Rock,
-    Ghost,
-    Dragon
+    Speed,
+    Defense,
+    Damage
 }
 
 public class TypeChart
 {
     static float[][] chart =
     {
-        //                  NOR   FIR   WAT   ELE  GRA  ICE  FIG  POI               
-        /*NOR*/ new float[] { 1f,  1f,   1f,  1f,  1f,  1f,  1f,  1f },
-        /*FIR*/ new float[] { 1f, 0.5f, 0.5f, 1f,  2f,  2f,  1f,  1f },
-        /*WAT*/ new float[] { 1f,  2f,  0.5f, 2f, 0.5f, 1f,  1f,  1f },
-        /*ELE*/ new float[] { 1f,  1f,  2f,  0.5f,0.5f, 2f,  1f,  1f },
-        /*GRS*/ new float[] { 1f, 0.5f, 2f,   2f, 0.5f, 1f,  1f, 0.5f },
-        /*POI*/ new float[] { 1f,  1f,   1f,  1f,  2f,  1f,  1f,  1f }
+        //                  SPd    Def  Dmg       
+        /*SPD*/ new float[] { 1f,  2f,   0.5f},
+        /*DEF*/ new float[] { 0.5f, 1f, 2f},
+        /*DMG*/ new float[] { 2f,  0.5f,  1f}
     };
 
     public static float GetEffectiveness(PokemonType attackType, PokemonType defenseType)
