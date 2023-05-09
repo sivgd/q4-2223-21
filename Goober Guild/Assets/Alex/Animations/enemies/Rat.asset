@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rat Mage
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type1: 0
+  frontSprite: {fileID: 8020143640844766479, guid: 74f9fb28db01bfc43aed78ee19960431, type: 3}
+  backSprite: {fileID: 8020143640844766479, guid: 74f9fb28db01bfc43aed78ee19960431, type: 3}
+  type1: 3
   type2: 0
-  maxHp: 0
-  attack: 0
-  defense: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
-  learnableMoves: []
+  maxHp: 40
+  attack: 65
+  defense: 40
+  spAttack: 75
+  spDefense: 45
+  speed: 50
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: c874df8f5d7d35c488f0f9517ddaa455, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 810d49f4aefb7294aa9424e2890b0241, type: 2}
+    level: 1

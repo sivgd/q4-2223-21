@@ -41,8 +41,8 @@ public class MoveBase : ScriptableObject
 
     public bool IsSpecial {
         get {
-            if (type == PokemonType.Fire || type == PokemonType.Water || type == PokemonType.Grass
-                || type == PokemonType.Ice || type == PokemonType.Electric || type == PokemonType.Dragon)
+            if (type == PokemonType.None || type == PokemonType.None
+                )
             {
                 return true;
             }
