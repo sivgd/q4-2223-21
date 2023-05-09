@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 6671513068621566557}
   - component: {fileID: 6671513068621566558}
   - component: {fileID: 6671513068621566559}
-  - component: {fileID: 5614258699919684418}
+  - component: {fileID: 8454126423909603446}
   m_Layer: 0
   m_Name: PartyMember
   m_TagString: Untagged
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5614258699919684418
+--- !u!114 &8454126423909603446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,13 +475,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6671513068621566554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016299bb59b90694db3277eaa6a041fe, type: 3}
+  m_Script: {fileID: 11500000, guid: c5c67d466718e5847811e53f7b23c0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 6671513067774122943}
   levelText: {fileID: 6671513067536215472}
   hpBar: {fileID: 6671513068944833618}
-  highlightedColor: {r: 0, g: 0.6745098, b: 1, a: 0}
+  messageText: {fileID: 0}
 --- !u!1 &6671513068944833616
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6671513068944833616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88020bf8a8b91274fb698df84996ddff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0500582006a876449994ac9c8167ff78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 6671513067931991683}

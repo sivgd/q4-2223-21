@@ -152,7 +152,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator AboutToUse(Pokemon newPokemon)
     {
         state = BattleState.Busy;
-        yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newPokemon.Base.Name}. Do you want to change pokemon?");
+        yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newPokemon.Base.Name}. Do you want to change Heroes?");
 
         state = BattleState.AboutToUse;
         dialogBox.EnableChoiceBox(true);
@@ -368,7 +368,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator HandlePokemonFainted(BattleUnit faintedUnit)
     {
-        yield return dialogBox.TypeDialog($"{faintedUnit.Pokemon.Base.Name} Fainted");
+        yield return dialogBox.TypeDialog($"{faintedUnit.Pokemon.Base.Name} has Fallen");
         faintedUnit.PlayFaintAnimation();
         yield return new WaitForSeconds(2f);
 
@@ -450,12 +450,12 @@ public class BattleSystem : MonoBehaviour
     IEnumerator ShowDamageDetails(DamageDetails damageDetails)
     {
         if (damageDetails.Critical > 1f)
-            yield return dialogBox.TypeDialog("A critical hit!");
+            yield return dialogBox.TypeDialog("A critical strike!");
 
         if (damageDetails.TypeEffectiveness > 1f)
-            yield return dialogBox.TypeDialog("It's super effective!");
+            yield return dialogBox.TypeDialog("Hit a weak point!");
         else if (damageDetails.TypeEffectiveness < 1f)
-            yield return dialogBox.TypeDialog("It's not very effective!");
+            yield return dialogBox.TypeDialog("It was a weak strike!");
     }
 
     public void HandleUpdate()
@@ -520,20 +520,20 @@ public class BattleSystem : MonoBehaviour
 
     void HandleActionSelection()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             ++currentAction;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A))
             --currentAction;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
             currentAction += 2;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W))
             currentAction -= 2;
 
         currentAction = Mathf.Clamp(currentAction, 0, 3);
 
         dialogBox.UpdateActionSelection(currentAction);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (currentAction == 0)
             {
@@ -560,20 +560,20 @@ public class BattleSystem : MonoBehaviour
 
     void HandleMoveSelection()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             ++currentMove;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A))
             --currentMove;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
             currentMove += 2;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W))
             currentMove -= 2;
 
         currentMove = Mathf.Clamp(currentMove, 0, playerUnit.Pokemon.Moves.Count - 1);
 
         dialogBox.UpdateMoveSelection(currentMove, playerUnit.Pokemon.Moves[currentMove]);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             var move = playerUnit.Pokemon.Moves[currentMove];
             if (move.PP == 0) return;
@@ -582,7 +582,7 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableDialogText(true);
             StartCoroutine(RunTurns(BattleAction.Move));
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.Backspace))
         {
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
@@ -597,12 +597,12 @@ public class BattleSystem : MonoBehaviour
             var selectedMember = partyScreen.SelectedMember;
             if (selectedMember.HP <= 0)
             {
-                partyScreen.SetMessageText("You can't send out a fainted pokemon");
+                partyScreen.SetMessageText("You can't command a fallen hero!");
                 return;
             }
             if (selectedMember == playerUnit.Pokemon)
             {
-                partyScreen.SetMessageText("You can't switch with the same pokemon");
+                partyScreen.SetMessageText("You can't command the same hero!");
                 return;
             }
 
@@ -626,7 +626,7 @@ public class BattleSystem : MonoBehaviour
         {
             if (playerUnit.Pokemon.HP <= 0)
             {
-                partyScreen.SetMessageText("You have to choose a pokemon to continue");
+                partyScreen.SetMessageText("You have to choose hero to battle!");
                 return;
             }
 
@@ -647,12 +647,12 @@ public class BattleSystem : MonoBehaviour
 
     void HandleAboutToUse()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S))
             aboutToUseChoice = !aboutToUseChoice;
 
         dialogBox.UpdateChoiceBox(aboutToUseChoice);
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             dialogBox.EnableChoiceBox(false);
             if (aboutToUseChoice == true)
@@ -666,7 +666,7 @@ public class BattleSystem : MonoBehaviour
                 StartCoroutine(SendNextTrainerPokemon());
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.Backspace))
         {
             dialogBox.EnableChoiceBox(false);
             StartCoroutine(SendNextTrainerPokemon());
@@ -677,7 +677,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (playerUnit.Pokemon.HP > 0)
         {
-            yield return dialogBox.TypeDialog($"Come back {playerUnit.Pokemon.Base.Name}");
+            yield return dialogBox.TypeDialog($"Retreat {playerUnit.Pokemon.Base.Name}!");
             playerUnit.PlayFaintAnimation();
             yield return new WaitForSeconds(2f);
         }
@@ -722,7 +722,7 @@ public class BattleSystem : MonoBehaviour
 
         if (isTrainerBattle)
         {
-            yield return dialogBox.TypeDialog($"You can't steal the trainers pokemon!");
+            yield return dialogBox.TypeDialog($"You can't kidnap people!");
             state = BattleState.RunningTurn;
             yield break;
         }
@@ -802,7 +802,7 @@ public class BattleSystem : MonoBehaviour
 
         if (isTrainerBattle)
         {
-            yield return dialogBox.TypeDialog($"You can't run from trainer battles!");
+            yield return dialogBox.TypeDialog($"You can't run from warrior duels!");
             state = BattleState.RunningTurn;
             yield break;
         }
@@ -814,7 +814,7 @@ public class BattleSystem : MonoBehaviour
 
         if (enemySpeed < playerSpeed)
         {
-            yield return dialogBox.TypeDialog($"Ran away safely!");
+            yield return dialogBox.TypeDialog($"You escaped the ambush!");
             BattleOver(true);
         }
         else
@@ -824,7 +824,7 @@ public class BattleSystem : MonoBehaviour
 
             if (UnityEngine.Random.Range(0, 256) < f)
             {
-                yield return dialogBox.TypeDialog($"Ran away safely!");
+                yield return dialogBox.TypeDialog($"You escaped the ambush!");
                 BattleOver(true);
             }
             else

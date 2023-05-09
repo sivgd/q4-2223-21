@@ -55,13 +55,13 @@ public class PartyScreen : MonoBehaviour
     {
         var prevSelection = selection;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
             ++selection;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.A))
             --selection;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
             selection += 2;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.W))
             selection -= 2;
 
         selection = Mathf.Clamp(selection, 0, pokemons.Count - 1);

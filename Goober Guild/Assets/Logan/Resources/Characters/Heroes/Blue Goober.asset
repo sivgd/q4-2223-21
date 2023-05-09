@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Max the blue goober
   frontSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
   backSprite: {fileID: -4999009522912839560, guid: 8823583e199cd524ea5484f8f3f1c543, type: 3}
-  type1: 0
+  type1: 1
   type2: 0
   maxHp: 50
   attack: 35
@@ -24,13 +24,13 @@ MonoBehaviour:
   spAttack: 45
   spDefense: 45
   speed: 75
-  expYield: 64
-  growthRate: 1
+  expYield: 70
+  growthRate: 0
   catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 8d080e6c3094d414788d116409a72c31, type: 2}
     level: 1
   - moveBase: {fileID: 11400000, guid: 619872eacd521aa4f85f44e2152f2576, type: 2}
-    level: 6
+    level: 7
   learnableByItems: []
   evolutions: []
