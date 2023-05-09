@@ -9884,7 +9884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokemons:
-  - {_base: {fileID: 11400000, guid: 77f5af2a0a9bf514fa55612d00e0384c, type: 2}, level: 7, <Exp>k__BackingField: 0, <HP>k__BackingField: 0, <StatusTime>k__BackingField: 0, <VolatileStatusTime>k__BackingField: 0, <MaxHp>k__BackingField: 0}
+  - _base: {fileID: 11400000, guid: 77f5af2a0a9bf514fa55612d00e0384c, type: 2}
+    level: 7
 --- !u!114 &576085914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154169,9 +154170,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokemons:
-  - {_base: {fileID: 11400000, guid: 08d96c9c0b38f9f4da178ec1d1eb0a9e, type: 2}, level: 5, <Exp>k__BackingField: 0, <HP>k__BackingField: 0, <StatusTime>k__BackingField: 0, <VolatileStatusTime>k__BackingField: 0, <MaxHp>k__BackingField: 0}
-  - {_base: {fileID: 11400000, guid: 0871b431ee3a30748ba7cb72223aa4f8, type: 2}, level: 5, <Exp>k__BackingField: 0, <HP>k__BackingField: 0, <StatusTime>k__BackingField: 0, <VolatileStatusTime>k__BackingField: 0, <MaxHp>k__BackingField: 0}
-  - {_base: {fileID: 11400000, guid: cf6e07c055cce934cb686713cc0b3e02, type: 2}, level: 5, <Exp>k__BackingField: 0, <HP>k__BackingField: 0, <StatusTime>k__BackingField: 0, <VolatileStatusTime>k__BackingField: 0, <MaxHp>k__BackingField: 0}
+  - _base: {fileID: 11400000, guid: 08d96c9c0b38f9f4da178ec1d1eb0a9e, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: 0871b431ee3a30748ba7cb72223aa4f8, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: cf6e07c055cce934cb686713cc0b3e02, type: 2}
+    level: 5
 --- !u!114 &2053686600
 MonoBehaviour:
   m_ObjectHideFlags: 0
