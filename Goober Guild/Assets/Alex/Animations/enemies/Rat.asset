@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5aa4a7f37a22714c9924381e9ade610, type: 3}
-  m_Name: Red Goober
+  m_Name: Rat
   m_EditorClassIdentifier: 
-  name: Herbert
+  name: Rat Mage
   description: 
-  frontSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
-  backSprite: {fileID: -1723931391525571730, guid: 66b1b8f90df3768449205a692b9f9fb2, type: 3}
+  frontSprite: {fileID: 0}
+  backSprite: {fileID: 0}
   type1: 0
   type2: 0
   maxHp: 0
@@ -23,5 +23,5 @@ MonoBehaviour:
   defense: 0
   spAttack: 0
   spDefense: 0
-  speed: 35
+  speed: 0
   learnableMoves: []
